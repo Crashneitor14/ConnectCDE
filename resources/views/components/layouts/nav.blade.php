@@ -35,7 +35,7 @@
                             Home
                         </a>
                         <a href="{{ route('posts.index')}}"
-                        class="px-3 py-2 text-sm font-medium rounded-md hover:text-sky-600 dark:hover:text-dark {{ request()->routeIs('posts.index') ? 'text-sky-600 ' : 'text-slate-250'}}">
+                        class="px-3 py-2 text-sm font-medium rounded-md hover:text-sky-600 dark:hover:text-dark {{ request()->routeIs('posts.*') ? 'text-sky-600 ' : 'text-slate-250'}}">
                         Publicaciones
                     </a>
                         <!-- Active: 'text-sky-600 dark:text-white', Inactive 'text-slate-400' -->
