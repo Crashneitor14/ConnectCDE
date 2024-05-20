@@ -34,16 +34,17 @@
                             class="px-3 py-2 text-sm font-medium rounded-md hover:text-sky-600 dark:hover:text-dark {{ request()->routeIs('menu') ? 'text-sky-600 ' : 'text-slate-250'}}">
                             Home
                         </a>
+                        <a href="{{ route('posts.index')}}"
+                        class="px-3 py-2 text-sm font-medium rounded-md hover:text-sky-600 dark:hover:text-dark {{ request()->routeIs('posts.index') ? 'text-sky-600 ' : 'text-slate-250'}}">
+                        Publicaciones
+                    </a>
                         <!-- Active: 'text-sky-600 dark:text-white', Inactive 'text-slate-400' -->
                         <a href="{{ route('plata')}}"
                             class="px-3 py-2 text-sm font-medium rounded-md hover:text-sky-600 dark:hover:text-dark {{ request()->routeIs('plata') ? 'text-sky-600 ' : 'text-slate-250'}}">
                             Finanzas
                         </a>
                         <!-- Active: 'text-sky-600 dark:text-white', Inactive 'text-slate-400' -->
-                        <a href="{{ route('posts.index')}}"
-                            class="px-3 py-2 text-sm font-medium rounded-md hover:text-sky-600 dark:hover:text-dark {{ request()->routeIs('posts.index') ? 'text-sky-600 ' : 'text-slate-250'}}">
-                            Publicaciones
-                        </a>
+
                         <!-- Active: 'text-sky-600 dark:text-white', Inactive 'text-slate-400' -->
                         <a href="{{ route('contact')}}"
                             class="px-3 py-2 text-sm font-medium rounded-md hover:text-sky-600 dark:hover:text-dark {{ request()->routeIs('contact') ? 'text-sky-600 ' : 'text-slate-250'}}">
