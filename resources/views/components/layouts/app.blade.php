@@ -10,7 +10,7 @@
     <script src="js/app.js"></script>
     @vite(['resources/css/app.scss','resources/js/app.js'])
 </head>
-<body>
+<body class="antialiased bg-slate-350">
 
     <x-layouts.nav />
     @if(session('status'))
