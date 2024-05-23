@@ -1,30 +1,32 @@
-<label>
-    titulo<br>
-    <input name="title" type="text" value="{{ old('title', $post->title)}}">
+
+<div class="space-y-4">
+<label class="flex flex-col">
+    <span class="flex justify-center font-serif text-slate-600">Titulo</span>
+    <input class="rounded-md shadow-sm border-slate-250 focus:ring-slate-300 focus:ring-opacity-50 focus:border-slate-300"name="title" type="text" value="{{ old('title', $post->title)}}">
+
     @error('title')
-        <br>
-        <small style="color:red">{{$message}}</small>
+        <small class="font-bold text-red-500/80">{{$message}}</small>
     @enderror
-</label><br>
-<label>
-    cuerpo de la publicacion <br>
-    <textarea name="body" cols="30" rows="10">{{old('body',$post->body)}}</textarea>
+
+</label>
+<label class="flex flex-col">
+    <span class="flex justify-center font-serif text-slate-600">Cuerpo de la publicacion</span>
+    <textarea class="rounded-md shadow-sm border-slate-250 focus:ring-slate-300 focus:ring-opacity-50 focus:border-slate-300" name="body" rows="3">{{old('body',$post->body)}}</textarea>
+
     @error('body')
-    <br>
-    <small style="color:red">{{$message}}</small>
+    <small class="font-bold text-red-500/80">{{$message}}</small>
     @enderror
 
+</label>
 
-</label><br>
+<label class="flex flex-col">
+    <span class="flex justify-center font-serif text-slate-600">Detalles del cuerpo</span>
+    <textarea class="rounded-md shadow-sm border-slate-250 focus:ring-slate-300 focus:ring-opacity-50 focus:border-slate-300" name="details" rows="3">{{old('details',$post->details)}}</textarea>
 
-<label>
-    detalles del cuerpo <br>
-    <textarea name="details" cols="30" rows="10">{{old('details',$post->details)}}</textarea>
-    @error('details')
-    <br>
-    <small style="color:red">{{$message}}</small>
+    @error('details') {{--detector de errores--}}
+    <small class="font-bold text-red-500/80">{{$message}}</small>
     @enderror
 
-</label><br>
-
+</label>
+</div>
 
