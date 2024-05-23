@@ -7,10 +7,10 @@
     <a class="inline-flex items-center px-4 py-2 text-xs font-semibold tracking-widest text-center text-white uppercase ease-in-out border border-transparent rounded-md dark:text-sky-200 bg-sky-800"
         href="{{route('posts.create')}}">Crear nueva publicacion</a>
 </header>
-    <main class="grid w-full gap-4 px-4 max-w-7xl sm:grid-cols-1 md:grid-cols-1">
+    <main class="grid w-full gap-8 px-96 max-w-7xl sm:grid-cols-1 md:grid-cols-1">
    @foreach ($posts as $post)
 
-   <div class="bg-white max-w-3xl px-4 py-2 space-y-4 bg-grey rounded shadow bg-slate-280">
+   <div class=" bg-white max-w-3xl px-4 py-2 space-y-4 bg-grey rounded shadow bg-slate-280">
        <h2 class="text-xl text-slate-600 dark:text-slate-600 hover:underline">
             <a href="{{route('posts.show' , $post)}}">
                 {{ $post->title}}
@@ -33,7 +33,6 @@
             </form>
         </div>
     </div>
-
    @endforeach
     </main>
 </x-layouts.app>

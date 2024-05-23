@@ -10,11 +10,4 @@
         href="{{route('posts.index')}}">Volver a listado</a>
     </div>
 
-
-
-
-
-
-
-
 </x-layouts.app>
