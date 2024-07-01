@@ -32,9 +32,9 @@ Route::view('/contacto', 'contacto')-> name('contact');
 
 Route::get('/login', function(){
     return 'pagina login';
-
-
 })->name('login');
+
+Route::view('/registrar','auth.register')->name('register');
 
 ?>
 

@@ -54,6 +54,16 @@
                             Contacto
                         </a>
                     </div>
+
+                </div>
+                <div class="ml-auto">
+                    <div class="flex space-x-4">
+                        <a href="{{ route('register')}}"
+                            class="px-3 py-2 text-sm font-medium rounded-md hover:text-sky-600 dark:hover:text-dark {{ request()->routeIs('register') ? 'text-sky-600 ' : 'text-slate-250'}}">
+                            Registrarse
+                    </a>
+                    </div>
+
                 </div>
             </div>
         </div>
