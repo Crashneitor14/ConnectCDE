@@ -12,7 +12,6 @@ use PHPUnit\Framework\Attributes\PostCondition;
 
 
 Route::view('/', 'welcome')->name('menu');
-Route::view('/contacto', 'contacto')-> name('contact');
 
 //Route::get('/publicacion', [PostController::class, 'index'])->name('posts.index');
 //Route::get('/publicacion/crear',[PostController::class, 'create'])->name('posts.create');
@@ -28,8 +27,14 @@ Route::resource('publicacion', PostController::class,[
 
 ]);
 
-Route::view('/finanzas', 'finanza')->name('plata');
+Route::view('/finanzas', 'finanza')->name('plata')->middleware('auth');
+Route::view('/contacto', 'contacto')-> name('contact');
 
+Route::get('/login', function(){
+    return 'pagina login';
+
+
+})->name('login');
 
 ?>
 

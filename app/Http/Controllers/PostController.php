@@ -10,6 +10,15 @@ use Illuminate\Support\Facades\DB;
 class PostController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('auth',['except' => ['index','show']]);
+
+    }
+
+
+
+
 public function index(){ //mostrar listado de posts
             $posts = Post::get();
         return view('posts.index', ['posts' => $posts]);
