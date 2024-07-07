@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\RegisteredUserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use PHPUnit\Framework\Attributes\PostCondition;
@@ -35,6 +36,8 @@ Route::get('/login', function(){
 })->name('login');
 
 Route::view('/registrar','auth.register')->name('register');
+Route::post('/registrar',[RegisteredUserController::class,'store']);
+
 
 ?>
 
