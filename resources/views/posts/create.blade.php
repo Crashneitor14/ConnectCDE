@@ -4,7 +4,7 @@
 >
     <h1 class="my-4 font-serif text-3xl text-center text-sky-600 dark:text-sky-500">Crear nueva  publicacion</h1>
 
-    <form class="max-w-xl px-8 py-4 mx-auto bg-slate-300 rounded shadow"action="{{route('posts.store')}}" method="POST">
+    <form class="max-w-xl px-8 py-4 mx-auto bg-slate-300 rounded shadow" action="{{route('posts.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
         @include('posts.form')
 

@@ -35,9 +35,19 @@ public function create(){ // devolver el formulario para crear post
 
 public function store(SavePostRequest $request){ // guardar el post en la base de datos
 
-    Post::create($request->validated()); //filtra los datos aqui mismo
 
-    return to_route('posts.index')->with('status','El post ha sido creado!');
+    //$post = Post::create($request->validated()); //filtra los datos aqui mismo
+    if ($request->hasFile('imagen')) {
+        $imagen = $request->file('imagen');
+        $nombreImagen = time() . '.' . $imagen->getClientOriginalExtension();
+        $imagen->storeAs('public/images', $nombreImagen); // Almacenar en 'storage/app/public/imagenes'
+
+        Post::create($request->validated());
+        return to_route('posts.index')->with('status','El post ha sido creado!');
+    }
+
+
+    //return to_route('posts.index')->with('status','El post ha sido creado!');
 }
 
 public function edit(Post $post){ // formulario de editar el post

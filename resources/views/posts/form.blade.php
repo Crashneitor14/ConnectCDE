@@ -20,12 +20,8 @@
 </label>
 
 <label class="flex flex-col">
-    <span class="flex justify-center font-serif text-slate-600">Detalles del cuerpo</span>
-    <textarea class="rounded-md shadow-sm border-slate-250 focus:ring-slate-300 focus:ring-opacity-50 focus:border-slate-300" name="details" rows="3">{{old('details',$post->details)}}</textarea>
-
-    @error('details') {{--detector de errores--}}
-    <small class="font-bold text-red-500/80">{{$message}}</small>
-    @enderror
+    <span class="flex justify-center font-serif text-slate-600">Imagen</span>
+    <input type="file" name="imagen">
 
 </label>
 <label class="flex flex-col">
