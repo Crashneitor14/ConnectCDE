@@ -11,6 +11,6 @@
 <body>
     @include('extensions.nav')
   @yield('contenido')
-sas
+sassdadsdad
 </body>
 </html>

@@ -6,8 +6,8 @@
     {{--<meta http-equiv="X-UA-Compatible" content="ie=edge">--}}
     <title>ConnectCDE - {{ $title ?? '' }}</title>
     <meta name="description" content="{{ $metaDescription ?? 'Default meta-description'}}"/>
-    <link rel="stylesheet" href="css/app.scss">
-    <script src="js/app.js"></script>
+    <link rel="stylesheet" href="/css/app.scss">
+    <script src="/js/app.js"></script>
     @vite(['resources/css/app.scss','resources/js/app.js'])
 </head>
 <body class="antialiased bg-slate-350">

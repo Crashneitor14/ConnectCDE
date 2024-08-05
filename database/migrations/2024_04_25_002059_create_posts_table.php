@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->longText('body');
             $table->longText('details');
-            $table->string('imagen_ruta')->nullable(); //prueba
+            $table->string('imagen')->nullable(); //prueba
             $table->timestamps();
         });
     }

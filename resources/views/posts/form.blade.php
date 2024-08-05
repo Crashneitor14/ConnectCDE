@@ -1,4 +1,3 @@
-
 <div class="space-y-4">
 <label class="flex flex-col">
     <span class="flex justify-center font-serif text-slate-600">Titulo</span>
@@ -21,7 +20,11 @@
 
 <label class="flex flex-col">
     <span class="flex justify-center font-serif text-slate-600">Imagen</span>
-    <input type="file" name="imagen">
+    <input type="file" name="imagen" accept="image/*">
+
+    @error('imagen')
+    <small class="font-bold text-red-500/80">{{$message}}</small>
+    @enderror
 
 </label>
 <label class="flex flex-col">

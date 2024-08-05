@@ -37,17 +37,36 @@ public function store(SavePostRequest $request){ // guardar el post en la base d
 
 
     //$post = Post::create($request->validated()); //filtra los datos aqui mismo
-    if ($request->hasFile('imagen')) {
-        $imagen = $request->file('imagen');
-        $nombreImagen = time() . '.' . $imagen->getClientOriginalExtension();
-        $imagen->storeAs('public/images', $nombreImagen); // Almacenar en 'storage/app/public/imagenes'
+    //if ($request->hasFile('imagen')) {
+    //    $imagen = $request->file('imagen');
+    //    $nombreImagen = time() . '.' . $imagen->getClientOriginalExtension();
+    //    $imagen->storeAs('public/images', $nombreImagen); // Almacenar en 'storage/app/public/imagenes'
+    //
+    //  Post::create($request->validated());
+    //  return to_route('posts.index')->with('status','El post ha sido creado!');
+    //}
 
-        Post::create($request->validated());
-        return to_route('posts.index')->with('status','El post ha sido creado!');
-    }
+    $newPost = new Post();
+
+    $newPost->title = $request->title;
+    $newPost->body = $request->body;
+    $newPost->details = $request->details;
 
 
-    //return to_route('posts.index')->with('status','El post ha sido creado!');
+    if($request->hasFile('imagen')){
+        $file = $request->file('imagen');
+        $destinationPath = 'images/imagenes/';
+        $filename = time() . '-' . $file->getClientOriginalName();
+        $uploadSuccess = $request->file('imagen')->move($destinationPath,$filename);
+        $newPost->imagen = $destinationPath . $filename;
+
+    };
+
+    $newPost->save();
+    //return $request -> all();
+
+
+    return to_route('posts.index')->with('status','El post ha sido creado!');
 }
 
 public function edit(Post $post){ // formulario de editar el post
