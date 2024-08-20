@@ -10,7 +10,7 @@
 <main class="m-auto grid w-full gap-8 px-96 max-w-7xl sm:grid-cols-1 md:grid-cols-1">
    @foreach ($posts as $post)
 
-   <div class=" bg-white max-w-3xl px-4 py-2 space-y-4 bg-grey rounded shadow bg-slate-280">
+        <div class=" bg-white max-w-3xl px-4 py-2 space-y-4 bg-grey rounded shadow bg-slate-280">
        <h2 class="text-xl text-slate-600 dark:text-slate-600 hover:underline">
             <a href="{{route('posts.show' , $post)}}" class="flex justify-center">
                 {{ $post->title}}
@@ -18,6 +18,10 @@
 
             </a>
         </h2>
+        <div>
+            <img src="{{ asset($post->imagen) }}" class="img-fluid img-thumbnail" width="500 px">
+
+        </div>
         <div>
             {{$post->body}}
         </div>
