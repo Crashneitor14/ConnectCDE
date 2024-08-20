@@ -11,7 +11,7 @@
 
         </p>
         <a class="mr-auto text-sm font-semibold underline border-2 border-transparent rounded  text-slate-600 focus:border-slate-500 focus:outline-none"
-        href="{{route('posts.index')}}">Volver a Publicaciones</a>
+        href="{{route('posts.index')}}">Volver a Publicacioneses</a>
     </div>
 
 </x-layouts.app>
