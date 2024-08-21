@@ -34,6 +34,8 @@ public function create(){ // devolver el formulario para crear post
 }
 
 public function store(SavePostRequest $request){ // guardar el post en la base de datos
+
+
     //$post = Post::create($request->validated()); //filtra los datos aqui mismo
     //if ($request->hasFile('imagen')) {
     //    $imagen = $request->file('imagen');
@@ -60,7 +62,7 @@ public function store(SavePostRequest $request){ // guardar el post en la base d
 
     };
 
-    $newPost->save();
+    $newPost->save();   //guarda los datos del newpost
     //return $request -> all();
 
 

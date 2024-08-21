@@ -8,23 +8,30 @@
         href="{{route('posts.create')}}">Crear nueva publicacion</a>
 </header>
 <main class="m-auto grid w-full gap-8 px-96 max-w-7xl sm:grid-cols-1 md:grid-cols-1">
-   @foreach ($posts as $post)
+@foreach ($posts as $post)
 
-        <div class=" bg-white max-w-3xl px-4 py-2 space-y-4 bg-grey rounded shadow bg-slate-280">
-       <h2 class="text-xl text-slate-600 dark:text-slate-600 hover:underline">
-            <a href="{{route('posts.show' , $post)}}" class="flex justify-center">
+    <div class=" bg-white w-50 px-4 py-2 space-y-4 bg-grey rounded shadow bg-slate-280">
+
+
+            <h2 class="flex justify-center text-xl text-slate-600 dark:text-slate-600 hover:underline">
+                {{--<a href="{{route('posts.show' , $post)}}" class="flex justify-center">--}}
                 {{ $post->title}}
+                </a>
+            </h2>
 
 
-            </a>
-        </h2>
-        <div>
+
+
+            <a href="{{route('posts.show' , $post)}}">
             <img src="{{ asset($post->imagen) }}" class="img-fluid img-thumbnail" width="500 px">
+            </a>
 
-        </div>
-        <div>
-            {{$post->body}}
-        </div>
+
+
+            <div>
+                {{$post->body}}
+            </div>
+
         <div class="flex justify-between ">
             <a class="inline-flex items-center font-semibold tracking-widest text-center uppercase transition duration-150 ease-in-out  text-slate-600 hover:text-slate-600 dark:hover:text-slate-600 focus:outline-none focus:border-slate-200"
                 href="{{route('posts.edit', $post)}}">Editar
@@ -38,7 +45,10 @@
             </form>
         </div>
     </div>
-   @endforeach
+
+@endforeach
+
+
     </main>
 </x-layouts.app>
 
