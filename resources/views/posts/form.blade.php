@@ -1,7 +1,7 @@
 <div class="space-y-4">
 <label class="flex flex-col">
     <span class="flex justify-center font-serif text-slate-600">Titulo</span>
-    <input class="rounded-md shadow-sm border-slate-250 focus:ring-slate-300 focus:ring-opacity-50 focus:border-slate-300"name="title" type="text" value="{{ old('title', $post->title)}}">
+    <input class="rounded-md shadow-sm border-slate-250 focus:ring-slate-300 focus:ring-opacity-50 focus:border-slate-300" name="title" type="text" value="{{ old('title', $post->title)}}">
 
     @error('title')
         <small class="font-bold text-red-500/80">{{$message}}</small>
@@ -10,7 +10,8 @@
 </label>
 <label class="flex flex-col">
     <span class="flex justify-center font-serif text-slate-600">Cuerpo de la publicacion</span>
-    <textarea class="rounded-md shadow-sm border-slate-250 focus:ring-slate-300 focus:ring-opacity-50 focus:border-slate-300" name="body" rows="3">{{old('body',$post->body)}}</textarea>
+    <input class="shadow-sm border-slate-250 focus:ring-slate-300 focus:ring-opacity-50 focus:border-slate-300" name="body" rows="3" value="{{old('body',$post->body)}}">
+    </input>
 
     @error('body')
     <small class="font-bold text-red-500/80">{{$message}}</small>
@@ -18,9 +19,10 @@
 
 </label>
 
-<label class="flex flex-col">
+<label class="flex flex-col ">
     <span class="flex justify-center font-serif text-slate-600">Imagen</span>
-    <input type="file" name="imagen" accept="image/*">
+    <img src="{{ asset($post->imagen) }}" class="mx-auto" width="300 px">
+    <input class="mx-auto" type="file" name="imagen" accept="image/*">
 
     @error('imagen')
     <small class="font-bold text-red-500/80">{{$message}}</small>

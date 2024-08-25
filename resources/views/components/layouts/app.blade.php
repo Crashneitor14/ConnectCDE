@@ -10,17 +10,18 @@
     <script src="/js/app.js"></script>
     @vite(['resources/css/app.scss','resources/js/app.js'])
 </head>
+
 <body class="antialiased bg-slate-350">
 
     <x-layouts.nav />
 
     @if(session('status'))
-    <div class="max-w-screen-xl px-3 py-2 mx-auto font-bold text-white sm:px-6 lg:px-8 bg-emerald-500 dark:bg-emerald-700">
+        <div class="max-w-screen-xl px-3 py-2 mx-auto font-bold text-white sm:px-6 lg:px-8 bg-emerald-500 dark:bg-emerald-700">
         {{session('status')}}
-    </div>
+        </div>
     @endif
 
-{{ $slot }}
+        {{ $slot }}
 
 
 </body>
