@@ -13,7 +13,7 @@
     <div class=" bg-white w-50 px-4 py-2 space-y-4 bg-grey rounded shadow bg-slate-280">
 
 
-            <h2 class="flex justify-center text-xl text-slate-600 dark:text-slate-600 hover:underline">
+            <h2 class="flex justify-center text-xl">
                 {{--<a href="{{route('posts.show' , $post)}}" class="flex justify-center">--}}
                 {{ $post->title}}
                 </a>

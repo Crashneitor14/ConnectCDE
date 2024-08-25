@@ -13,10 +13,10 @@ NAVEGADOR
 
 
 <nav
-    class="w-screen bg-white border-b white:bg-slate-900 border-slate-900/10 lg:px-8 white:border-slate-300/10 lg:mx-0">
+    class="mx-auto w-screen bg-white border-b white:bg-slate-900 border-slate-900/10 lg:px-8 white:border-slate-300/10 lg:mx-0">
     <div class="px-4 mx-auto max-w-7xl sm:px-16 lg:px-20">
         <div class="relative flex items-center justify-between h-16">
-            <div class="flex items-center justify-center flex-1 sm:items-stretch sm:justify-start">
+            <div class="flex items-center flex-1 sm:items-stretch sm:justify-start">
                 <div class="flex items-center flex-shrink-0">
                     <a href="{{ route('menu')}}">
                         <img class="flex items-center justify-center" src="{{ asset('images/ubb.png') }}" alt="Mi Imagen" width="67">
@@ -41,7 +41,6 @@ NAVEGADOR
                             Contacto
                         </a>
                     </div>
-
                 </div>
                 <div class="ml-auto">
                     <div class="flex space-x-4">
