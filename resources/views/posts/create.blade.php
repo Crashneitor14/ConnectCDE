@@ -6,7 +6,7 @@
 
     <form class="max-w-xl px-8 py-4 mx-auto bg-slate-300 rounded shadow" action="{{route('posts.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
-        @include('posts.form')
+        @include('posts.formnew')
 
         <div class="flex items-center justify-between mt-4">
         <button class="inline-flex items-center px-4 py-2 text-xs font-semibold tracking-widest text-center text-white uppercase transition duration-150 ease-in-out border-2 border-transparent rounded-md bg-sky-800 hover:bg-sky-700 active:bg-sky-700 focus:outline-none focus:border-sky-500" type="submit">Enviar</button>
