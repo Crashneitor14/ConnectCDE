@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\SavePostRequest;
 use App\Models\Post;
+use App\Http\Controllers\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -87,8 +88,11 @@ public function update(SavePostRequest $request, Post $post){ //almacenar los ca
 }
 
 public function destroy(Post $post){ //destruir el post en la base de datos
-
+    $imagePath = $post->imagen;
     $post->delete();
+    if ($imagePath && file_exists(public_path($imagePath))) {
+        unlink(public_path($imagePath));
+    }
 
     return to_route('posts.index')->with('status','El post ha sido eliminado!');
 }
