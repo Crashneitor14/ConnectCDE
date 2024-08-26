@@ -78,12 +78,10 @@ public function edit(Post $post){ // formulario de editar el post
 
 public function update(SavePostRequest $request, Post $post){ //almacenar los cambios del post a la base de datos
 
-
     $post->update($request->validated()); //filtra los datos aqui mismo
 
 
     return to_route('posts.show',$post)->with('status','El post ha sido actualizado!');
-
 
 }
 
