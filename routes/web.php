@@ -28,6 +28,8 @@ Route::resource('publicacion', PostController::class,[
 
 ]);
 
+Route::View('/testeo', 'test')->name('test');
+
 Route::view('/finanzas', 'finanza')->name('plata')->middleware('auth');
 Route::view('/contacto', 'contacto')-> name('contact');
 

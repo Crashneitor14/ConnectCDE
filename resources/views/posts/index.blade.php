@@ -6,8 +6,11 @@
     <h1 class="font-serif text-3xl text-sky-600 dark:text-sky-500">Publicacion</h1>
     <a class="inline-flex items-center px-4 py-2 text-xs font-semibold tracking-widest text-center text-white uppercase ease-in-out border border-transparent rounded-md dark:text-sky-200 bg-sky-800"
         href="{{route('posts.create')}}">Crear nueva publicacion</a>
+        <a class="inline-flex items-center px-4 py-2 text-xs font-semibold tracking-widest text-center text-white uppercase ease-in-out border border-transparent rounded-md dark:text-sky-200 bg-sky-800"
+        href="{{ route('test') }}">Probar Publicacion</a>
 </header>
 <main class="m-auto grid w-full gap-8 px-96 max-w-7xl sm:grid-cols-1 md:grid-cols-1">
+
 @foreach ($posts as $post)
 
     <div class=" bg-white w-50 px-4 py-2 space-y-4 bg-grey rounded shadow bg-slate-280">
