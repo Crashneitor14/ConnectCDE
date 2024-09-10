@@ -22,21 +22,28 @@ Route::view('/', 'welcome')->name('menu');
 //Route::patch('/publicacion/{post}',[PostController::class, 'update'])->name('posts.update');
 //Route::delete('/publicacion/{post}',[PostController::class, 'destroy'])->name('posts.destroy');
 
+//rutas enfoque publicacion
 Route::resource('publicacion', PostController::class,[
     'names' =>'posts',
     'parameters' => ['publicacion' => 'post']
 
 ]);
 
-Route::View('/testeo', 'test')->name('test');
 
+
+
+//rutas aun no terminadas
+Route::View('/pruebax', 'dashboard')->name('dashboard');
 Route::view('/finanzas', 'finanza')->name('plata')->middleware('auth');
 Route::view('/contacto', 'contacto')-> name('contact');
 
+
+//login
 Route::get('/login', function(){
     return 'pagina login';
 })->name('login');
 
+//registrar
 Route::view('/registrar','auth.register')->name('register');
 Route::post('/registrar',[RegisteredUserController::class,'store']);
 
