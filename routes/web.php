@@ -40,9 +40,7 @@ Route::view('/contacto', 'contacto')-> name('contact');
 
 //login
 Route::view('/login', 'auth.login')->name('login');
-//Route::get('/login', function(){
-//    return 'pagina login';
-//})->name('login');
+
 
 //registrar
 Route::view('/registrar','auth.register')->name('register');
