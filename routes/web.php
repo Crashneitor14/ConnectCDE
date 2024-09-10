@@ -33,15 +33,16 @@ Route::resource('publicacion', PostController::class,[
 
 
 //rutas aun no terminadas
-Route::View('/pruebax', 'dashboard')->name('dashboard');
+Route::View('/pruebax', 'test')->name('test');
 Route::view('/finanzas', 'finanza')->name('plata')->middleware('auth');
 Route::view('/contacto', 'contacto')-> name('contact');
 
 
 //login
-Route::get('/login', function(){
-    return 'pagina login';
-})->name('login');
+Route::view('/login', 'auth.login')->name('login');
+//Route::get('/login', function(){
+//    return 'pagina login';
+//})->name('login');
 
 //registrar
 Route::view('/registrar','auth.register')->name('register');
