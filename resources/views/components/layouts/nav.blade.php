@@ -6,12 +6,8 @@
     <li><a href="{{ route('contact')}}">contacto</a></li>
 </ul>
 </nav>
-
 NAVEGADOR
-
 --}}
-
-
 <nav
     class="mx-auto w-screen bg-white border-b white:bg-slate-900 border-slate-900/10 lg:px-8 white:border-slate-300/10 lg:mx-0">
     <div class="px-4 mx-auto max-w-7xl sm:px-16 lg:px-20">
@@ -42,14 +38,22 @@ NAVEGADOR
                         </a>
                     </div>
                 </div>
-                <div class="ml-auto">
-                    <div class="flex space-x-4">
-                        <a href="{{ route('register')}}"
-                            class="px-3 py-2 text-sm font-medium rounded-md hover:text-sky-600 dark:hover:text-dark {{ request()->routeIs('register') ? 'text-sky-600 ' : 'text-slate-250'}}">
-                            Registrarse
-                    </a>
-                    </div>
 
+            </div>
+            <div class="ml-auto">
+                <div class="flex space-x-4">
+                    <a href="{{ route('login')}}"
+                        class="px-3 py-2 text-sm font-medium rounded-md hover:text-sky-600 dark:hover:text-dark {{ request()->routeIs('register') ? 'text-sky-600 ' : 'text-slate-250'}}">
+                        Login
+                </a>
+                </div>
+            </div>
+            <div class="ml-auto">
+                <div class="flex space-x-4">
+                    <a href="{{ route('register')}}"
+                        class="px-3 py-2 text-sm font-medium rounded-md hover:text-sky-600 dark:hover:text-dark {{ request()->routeIs('register') ? 'text-sky-600 ' : 'text-slate-250'}}">
+                        Registrarse
+                </a>
                 </div>
             </div>
         </div>
