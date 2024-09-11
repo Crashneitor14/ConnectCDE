@@ -4,10 +4,12 @@
 >
 <header class="px-6 py-4 space-y-2 text-center">
     <h1 class="font-serif text-3xl text-sky-600 dark:text-sky-500">Publicacion</h1>
+    @auth
     <a class="inline-flex items-center px-4 py-2 text-xs font-semibold tracking-widest text-center text-white uppercase ease-in-out border border-transparent rounded-md dark:text-sky-200 bg-sky-800"
         href="{{route('posts.create')}}">Crear nueva publicacion</a>
         <a class="inline-flex items-center px-4 py-2 text-xs font-semibold tracking-widest text-center text-white uppercase ease-in-out border border-transparent rounded-md dark:text-sky-200 bg-sky-800"
         href="{{ route('test') }}">Probar Publicacion</a>
+    @endauth
 </header>
 <main class="m-auto grid w-full gap-8 px-96 max-w-7xl sm:grid-cols-1 md:grid-cols-1">
 
@@ -34,7 +36,7 @@
             <div>
                 {{$post->body}}
             </div>
-
+        @auth
         <div class="flex justify-between ">
             <a class="inline-flex items-center font-semibold tracking-widest text-center uppercase transition duration-150 ease-in-out  text-slate-600 hover:text-slate-600 dark:hover:text-slate-600 focus:outline-none focus:border-slate-200"
                 href="{{route('posts.edit', $post)}}">Editar
@@ -47,6 +49,7 @@
             dark:text-red-500/80 hover:text-red-600 focus:outline-none" type="submit">Eliminar</button>
             </form>
         </div>
+        @endauth
     </div>
 
 @endforeach
