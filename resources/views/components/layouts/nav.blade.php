@@ -28,10 +28,13 @@ NAVEGADOR
                         class="px-3 py-2 text-sm font-medium rounded-md hover:text-sky-600 dark:hover:text-dark {{ request()->routeIs('posts.*') ? 'text-sky-600 ' : 'text-slate-250'}}">
                         Publicaciones
                     </a>
+                    @auth
                         <a href="{{ route('plata')}}"
                             class="px-3 py-2 text-sm font-medium rounded-md hover:text-sky-600 dark:hover:text-dark {{ request()->routeIs('plata') ? 'text-sky-600 ' : 'text-slate-250'}}">
                             Finanzas
                         </a>
+                    @endauth
+
                         <a href="{{ route('contact')}}"
                             class="px-3 py-2 text-sm font-medium rounded-md hover:text-sky-600 dark:hover:text-dark {{ request()->routeIs('contact') ? 'text-sky-600 ' : 'text-slate-250'}}">
                             Contacto
@@ -58,7 +61,9 @@ NAVEGADOR
                 </div>
             </div>
             @else
-
+            <div class="ml-auto">
+            <a href="#">{{ Auth::user()->name }}</a>
+            </div>
             <form action="{{ route('logout') }}" method="POST">
                     @csrf
                     <button>Cerrar Sesion</button>
