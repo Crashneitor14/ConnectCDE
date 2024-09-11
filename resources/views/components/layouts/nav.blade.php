@@ -40,11 +40,12 @@ NAVEGADOR
                 </div>
 
             </div>
+            @guest
             <div class="ml-auto">
                 <div class="flex space-x-4">
                     <a href="{{ route('login')}}"
                         class="px-3 py-2 text-sm font-medium rounded-md hover:text-sky-600 dark:hover:text-dark {{ request()->routeIs('login') ? 'text-sky-600 ' : 'text-slate-250'}}">
-                        Login
+                        Iniciar Sesion
                 </a>
                 </div>
             </div>
@@ -56,6 +57,13 @@ NAVEGADOR
                 </a>
                 </div>
             </div>
+            @else
+
+            <form action="{{ route('logout') }}"></form>
+                    @csrf
+                    <button>Cerrar Sesion</button>
+            @endguest
+
         </div>
     </div>
 </nav>

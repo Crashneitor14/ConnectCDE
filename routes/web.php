@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AutenticatedSessionController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
@@ -40,6 +41,9 @@ Route::view('/contacto', 'contacto')-> name('contact');
 
 //login
 Route::view('/login', 'auth.login')->name('login');
+Route::post('/login',[AutenticatedSessionController::class,'store']);
+Route::post('/logout',[AutenticatedSessionController::class,'destroy'])
+    ->name('logout');
 
 
 //registrar
