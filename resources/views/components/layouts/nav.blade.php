@@ -59,9 +59,10 @@ NAVEGADOR
             </div>
             @else
 
-            <form action="{{ route('logout') }}"></form>
+            <form action="{{ route('logout') }}" method="POST">
                     @csrf
                     <button>Cerrar Sesion</button>
+            </form>
             @endguest
 
         </div>
