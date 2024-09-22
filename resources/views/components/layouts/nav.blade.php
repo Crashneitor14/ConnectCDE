@@ -15,7 +15,7 @@ NAVEGADOR
             <div class="flex items-center flex-1 sm:items-stretch sm:justify-start">
                 <div class="flex items-center flex-shrink-0">
                     <a href="{{ route('menu')}}">
-                        <img class="flex items-center justify-center" src="{{ asset('images/ubb.png') }}" alt="Mi Imagen" width="67">
+                        <img class="flex items-center justify-center" src="{{ asset('images/face.png') }}" alt="Mi Imagen" width="130">
                     </a>
                 </div>
                 <div class="mx-auto">
