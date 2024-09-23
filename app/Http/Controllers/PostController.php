@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\SavePostRequest;
 use App\Models\Post;
+use Carbon\Carbon;
 use App\Http\Controllers\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -16,12 +17,9 @@ class PostController extends Controller
         //$this->middleware('auth',['except' => ['index','show']]);
 
     }
-
-
-
-
 public function index(){ //mostrar listado de posts
-            $posts = Post::get();
+
+        $posts = Post::get();
         return view('posts.index', ['posts' => $posts]);
 }
 
@@ -63,6 +61,14 @@ public function store(SavePostRequest $request){ // guardar el post en la base d
 
     };
 
+    $expiresAtInput = $request->input('expiracion');
+    $expiresAtInput = trim($expiresAtInput);
+    list($day, $month, $year) = explode('-', $expiresAtInput);
+    $expiresAtFormatted = "$day-$month-$year 00:00";
+    $expiresAt = Carbon::parse($expiresAtInput);
+    $newPost-> expiracion = $expiresAt;
+
+
     $newPost->save();   //guarda los datos del newpost
     //return $request -> all();
 
@@ -86,6 +92,8 @@ public function update(SavePostRequest $request, Post $post){ //almacenar los ca
 }
 
 public function destroy(Post $post){ //destruir el post en la base de datos
+
+
     $imagePath = $post->imagen;
     $post->delete();
     if ($imagePath && file_exists(public_path($imagePath))) {
@@ -94,5 +102,4 @@ public function destroy(Post $post){ //destruir el post en la base de datos
 
     return to_route('posts.index')->with('status','El post ha sido eliminado!');
 }
-
 }

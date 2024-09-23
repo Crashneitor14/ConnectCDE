@@ -30,6 +30,12 @@
 
 </label>
 <label class="flex flex-col">
+    <div class="mx-auto">
+        <label class="my-8" for="expiracion">Fecha de Expiración:</label>
+        <input type="datetime-local" name="expiracion" id="expiracion" value="{{ old('expiracion') }}">
+    </div>
+</label>
+<label class="flex flex-col">
     <span class="flex justify-center font-serif text-slate-600">Detalles del cuerpo</span>
     <textarea class="rounded-md shadow-sm border-slate-250 focus:ring-slate-300 focus:ring-opacity-50 focus:border-slate-300" name="details" rows="3">{{old('details',$post->details)}}</textarea>
 

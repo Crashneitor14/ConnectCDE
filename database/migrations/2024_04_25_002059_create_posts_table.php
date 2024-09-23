@@ -17,6 +17,7 @@ return new class extends Migration
             $table->longText('body');
             $table->longText('details');
             $table->string('imagen')->nullable(); //prueba
+            $table->timestamp('expiracion')->nullable();
             $table->timestamps();
         });
     }

@@ -3,6 +3,8 @@
 namespace App\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
+use Illuminate\Console\Scheduling\Schedule;
+use App\Console\Commands\DeleteExpiredPosts;
 
 class Kernel extends HttpKernel
 {
@@ -13,6 +15,15 @@ class Kernel extends HttpKernel
      *
      * @var array<int, class-string|string>
      */
+
+    protected function schedule(Schedule $schedule){
+
+        //$schedule->call(function () {
+        //    app()->make(\App\Http\Controllers\PostController::class)->DeleteExpiredPosts();
+        //})->everyMinute();
+        $schedule ->command('post:expired')->everyMinute();
+    }
+
     protected $middleware = [
         // \App\Http\Middleware\TrustHosts::class,
         \App\Http\Middleware\TrustProxies::class,
