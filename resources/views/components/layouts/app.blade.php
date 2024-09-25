@@ -11,7 +11,7 @@
     @vite(['resources/css/app.scss','resources/js/app.js'])
 </head>
 
-<body class="antialiased bg-slate-350">
+<body class="antialiased bg-slate-350 bg-gray-200">
 
     <x-layouts.nav />
 
