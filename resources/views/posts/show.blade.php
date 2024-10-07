@@ -10,8 +10,15 @@
             <img src="{{ asset($post->imagen) }}" class="img-fluid img-thumbnail" width="500 px">
 
         </p>
+
+
+
+
+        <div class="flex justify-between ">
+        <p>Creado por {{$post->name_user}}</p>
         <a class="mx-auto text-sm font-semibold underline border-2 border-transparent rounded  text-slate-600 focus:border-slate-500 focus:outline-none"
         href="{{route('posts.index')}}">Volver a Publicaciones</a>
+        </div>
     </div>
 
 </x-layouts.app>

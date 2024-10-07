@@ -18,6 +18,7 @@ return new class extends Migration
             $table->longText('details');
             $table->string('imagen')->nullable(); //prueba
             $table->timestamp('expiracion')->nullable();
+            $table->string('name_user')->nullable();
             $table->timestamps();
         });
     }

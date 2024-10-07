@@ -7,6 +7,7 @@ use App\Models\Post;
 use Carbon\Carbon;
 use App\Http\Controllers\File;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
@@ -46,12 +47,12 @@ public function store(SavePostRequest $request){ // guardar el post en la base d
     //}
 
     $newPost = new Post();
-
+    //datos post
     $newPost->title = $request->title;
     $newPost->body = $request->body;
     $newPost->details = $request->details;
 
-
+    //imagen
     if($request->hasFile('imagen')){
         $file = $request->file('imagen');
         $destinationPath = 'images/imagenes/';
@@ -60,13 +61,18 @@ public function store(SavePostRequest $request){ // guardar el post en la base d
         $newPost->imagen = $destinationPath . $filename;
 
     };
-
+    //fecha expiracion
     $expiresAtInput = $request->input('expiracion');
     $expiresAtInput = trim($expiresAtInput);
     list($day, $month, $year) = explode('-', $expiresAtInput);
     $expiresAtFormatted = "$day-$month-$year 00:00";
     $expiresAt = Carbon::parse($expiresAtInput);
     $newPost-> expiracion = $expiresAt;
+
+    //agregar nombre autor al post
+    $usuario = Auth::user();
+    $newPost->name_user = $usuario->name;
+
 
 
     $newPost->save();   //guarda los datos del newpost

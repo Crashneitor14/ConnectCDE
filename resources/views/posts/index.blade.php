@@ -36,6 +36,10 @@
             <div>
                 {{$post->body}}
             </div>
+            <div>
+                Creado {{$post->created_at->diffForHumans()}}
+            </div>
+
         @auth
         <div class="flex justify-between ">
             <a class="inline-flex items-center font-semibold tracking-widest text-center uppercase transition duration-150 ease-in-out  text-slate-600 hover:text-slate-600 dark:hover:text-slate-600 focus:outline-none focus:border-slate-200"
