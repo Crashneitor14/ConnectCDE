@@ -11,56 +11,60 @@
         href="{{ route('test') }}">Probar Publicacion</a>
     @endauth
 </header>
-<main class="m-auto grid w-full gap-8 px-96 max-w-7xl sm:grid-cols-1 md:grid-cols-1">
+<main class="m-auto grid w-full gap-8 px-96 max-w-7xl">
 
-@foreach ($posts as $post)
+        @foreach ($posts as $post)
 
-    <div class=" bg-white w-50 px-4 py-2 space-y-4 bg-grey rounded shadow bg-slate-280">
-
-
-            <h2 class="flex justify-center text-xl">
-                {{--<a href="{{route('posts.show' , $post)}}" class="flex justify-center">--}}
-                {{ $post->title}}
-                </a>
-            </h2>
+            <div class=" bg-white w-50 space-y-4 bg-grey rounded shadow bg-slate-280 px-4 py-3">
+                {{--Titulo del post--}}
+                <h2 class="flex justify-center text-xl">
+                        {{ $post->title}}
+                        </a>
+                    </h2>
 
 
 
+                    {{--imagen del post--}}
+                    <a href="{{route('posts.show' , $post)}}">
+                    <img src="{{ asset($post->imagen) }}" class="img-fluid img-thumbnail" width="500 px">
+                    </a>
 
-            <a href="{{route('posts.show' , $post)}}">
-            <img src="{{ asset($post->imagen) }}" class="img-fluid img-thumbnail" width="500 px">
-            </a>
 
+                    {{--Cuerpo del post--}}
+                    <div>
+                        {{$post->body}}
+                    </div>
+                    {{--Datos del autor del post--}}
+                    <div>
+                        Creado por {{$post->name_user}} {{$post->created_at->diffForHumans()}}
+                    </div>
 
-
-            <div>
-                {{$post->body}}
+                    {{--Edicion del post (solo administrador)--}}
+                @auth
+                <div class="flex justify-between ">
+                    <a class="inline-flex items-center font-semibold tracking-widest text-center uppercase transition duration-150 ease-in-out  text-slate-600 hover:text-slate-600 dark:hover:text-slate-600 focus:outline-none focus:border-slate-200"
+                        href="{{route('posts.edit', $post)}}">Editar
+                    </a>
+                    <form action="{{ route('posts.destroy', $post) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                    <button class="inline-flex items-center text-xs font-semibold tracking-widest text-center
+                    text-red-500 uppercase transition duration-150 ease-in-out
+                    dark:text-red-500/80 hover:text-red-600 focus:outline-none" type="submit">Eliminar</button>
+                    </form>
+                </div>
+                @endauth
             </div>
-            <div>
-                Creado {{$post->created_at->diffForHumans()}}
-            </div>
 
-        @auth
-        <div class="flex justify-between ">
-            <a class="inline-flex items-center font-semibold tracking-widest text-center uppercase transition duration-150 ease-in-out  text-slate-600 hover:text-slate-600 dark:hover:text-slate-600 focus:outline-none focus:border-slate-200"
-                href="{{route('posts.edit', $post)}}">Editar
-            </a>
-            <form action="{{ route('posts.destroy', $post) }}" method="POST">
-                @csrf
-                @method('DELETE')
-            <button class="inline-flex items-center text-xs font-semibold tracking-widest text-center
-            text-red-500 uppercase transition duration-150 ease-in-out
-            dark:text-red-500/80 hover:text-red-600 focus:outline-none" type="submit">Eliminar</button>
-            </form>
-        </div>
-        @endauth
-    </div>
-
-@endforeach
+        @endforeach
 
 
     </main>
+
 </x-layouts.app>
+
+
+
 
 
 
