@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AutenticatedSessionController;
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\FinanceController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use PHPUnit\Framework\Attributes\PostCondition;
@@ -36,14 +37,14 @@ Route::resource('publicacion', PostController::class,[
 //rutas aun no terminadas
 Route::View('/pruebax', 'test')->name('test');
 Route::view('/finanzas', 'finanza')->name('plata')->middleware('auth');
+Route::post('/finanzas',[FinanceController::class,'index'])->name('activity.index')->middleware('auth');
 Route::view('/contacto', 'contacto')-> name('contact');
 
 
 //login
 Route::view('/login', 'auth.login')->name('login');
 Route::post('/login',[AutenticatedSessionController::class,'store']);
-Route::post('/logout',[AutenticatedSessionController::class,'destroy'])
-    ->name('logout');
+Route::post('/logout',[AutenticatedSessionController::class,'destroy'])->name('logout');
 
 
 //registrar

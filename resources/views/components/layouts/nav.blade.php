@@ -29,7 +29,7 @@ NAVEGADOR
                         Publicaciones
                     </a>
                     @auth
-                        <a href="{{ route('plata')}}"
+                        <a href="{{ route('activity.index')}}"
                             class="px-3 py-2 text-sm font-medium rounded-md hover:text-sky-600 dark:hover:text-dark {{ request()->routeIs('plata') ? 'text-sky-600 ' : 'text-slate-250'}}">
                             Finanzas
                         </a>
@@ -43,7 +43,7 @@ NAVEGADOR
                 </div>
 
             </div>
-            @guest
+            @guest {{--Mostrar index--}}
             <div class="ml-auto">
                 <div class="flex space-x-4">
                     <a href="{{ route('login')}}"
@@ -60,14 +60,16 @@ NAVEGADOR
                 </a>
                 </div>
             </div>
-            @else
+            @else {{--Mostrar acorde rol estudiante (modificar)--}}
+
+                <a href="#">{{ Auth::user()->name }}</a>
+
             <div class="ml-auto">
-            <a href="#">{{ Auth::user()->name }}</a>
+                <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button>Cerrar Sesion</button>
+                </form>
             </div>
-            <form action="{{ route('logout') }}" method="POST">
-                    @csrf
-                    <button>Cerrar Sesion</button>
-            </form>
             @endguest
 
         </div>
