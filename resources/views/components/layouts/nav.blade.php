@@ -29,8 +29,8 @@ NAVEGADOR
                         Publicaciones
                     </a>
                     @auth
-                        <a href="{{ route('activity.index')}}"
-                            class="px-3 py-2 text-sm font-medium rounded-md hover:text-sky-600 dark:hover:text-dark {{ request()->routeIs('plata') ? 'text-sky-600 ' : 'text-slate-250'}}">
+                        <a href="{{ route('plata')}}"
+                            class="px-3 py-2 text-sm font-medium rounded-md hover:text-sky-600 dark:hover:text-dark {{ request()->routeIs('activity.*') ? 'text-sky-600 ' : 'text-slate-250'}}">
                             Finanzas
                         </a>
                     @endauth

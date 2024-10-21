@@ -30,14 +30,17 @@ Route::resource('publicacion', PostController::class,[
     'parameters' => ['publicacion' => 'post']
 
 ]);
-
+//sector finanza
+Route::view('/finanzas', 'activity.index')->name('plata')->middleware('auth');
 
 
 
 //rutas aun no terminadas
 Route::View('/pruebax', 'test')->name('test');
-Route::view('/finanzas', 'finanza')->name('plata')->middleware('auth');
-Route::post('/finanzas',[FinanceController::class,'index'])->name('activity.index')->middleware('auth');
+
+
+
+//contactos
 Route::view('/contacto', 'contacto')-> name('contact');
 
 
