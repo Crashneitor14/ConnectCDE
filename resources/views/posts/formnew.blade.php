@@ -9,7 +9,7 @@
 
     </label>
     <label class="flex flex-col">
-        <span class="flex justify-center font-serif text-slate-600">Cuerpo de la publicacion</span>
+        <span class="flex justify-center font-serif text-slate-600">Cuerpo Publicacion</span>
         <input class="shadow-sm border-slate-250 focus:ring-slate-300 focus:ring-opacity-50 focus:border-slate-300" name="body" rows="3" value="{{old('body',$post->body)}}">
         </input>
 
@@ -35,7 +35,7 @@
         </div>
     </label>
     <label class="flex flex-col">
-        <span class="flex justify-center font-serif text-slate-600">Detalles del cuerpo</span>
+        <span class="flex justify-center font-serif text-slate-600">Detalles Publicacion</span>
         <textarea class="rounded-md shadow-sm border-slate-250 focus:ring-slate-300 focus:ring-opacity-50 focus:border-slate-300" name="details" rows="3">{{old('details',$post->details)}}</textarea>
 
         @error('details') {{--detector de errores--}}
