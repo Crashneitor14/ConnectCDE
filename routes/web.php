@@ -31,8 +31,8 @@ Route::resource('publicacion', PostController::class,[
 
 ]);
 //sector finanza
-Route::view('/finanzas', 'activity.index')->name('plata')->middleware('auth');
-
+Route::view('/finanzas', 'activity.index')->name('act.index')->middleware('auth');
+Route::view('/finanzas/crear', 'activity.create')->name('act.create')->middleware('auth');
 
 
 //rutas aun no terminadas
