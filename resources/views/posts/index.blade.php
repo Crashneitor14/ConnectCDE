@@ -34,7 +34,7 @@
                     <div>
                         {{$post->body}}
                     </div>
-                    {{--Datos del autor del post--}}
+                    {{--Datos del autor y tiempo del post --}}
                     <div>
                         Creado por {{$post->name_user}} {{$post->created_at->diffForHumans()}}
                     </div>
