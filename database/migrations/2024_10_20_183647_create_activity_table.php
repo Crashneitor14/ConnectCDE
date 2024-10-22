@@ -14,10 +14,12 @@ return new class extends Migration
         Schema::create('activity', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->text('description');
-            $table->date('date');
-            $table->date('date_end');
-            $table->string('status')->default('activa');
+            $table->string('status');
+            $table->decimal('costs', 8, 2);
+            $table->string('tipe_costs');
+            $table->string('imagen')->nullable();
+            $table->timestamp('date_end')->nullable();
+            $table->longText('observation');
             $table->timestamps();
         });
     }
