@@ -17,7 +17,7 @@
     </div>
     {{--seccion --}}
     <label class="flex flex-col">
-        <span class="flex justify-center font-serif text-slate-600">Gastos</span>
+        <span class="flex justify-center font-serif text-slate-600">Rendiciones</span>
 
             <div id="gastos-container">
                 <div class="input-group mb-2">
