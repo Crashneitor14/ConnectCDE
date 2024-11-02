@@ -14,12 +14,12 @@ return new class extends Migration
         Schema::create('activity', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('status');
-            $table->decimal('costs', 8, 2);
-            $table->string('tipe_costs');
+            $table->enum('status',['En Proceso', 'Terminado']);
             $table->string('imagen')->nullable();
+            $table->timestamp('date_start')->nullable();
             $table->timestamp('date_end')->nullable();
             $table->longText('observation');
+            $table->string('user_charge')->nullable();
             $table->timestamps();
         });
     }

@@ -59,7 +59,7 @@
         </div>
     </div>
 </div>
-<h1 class="my-4 font-serif text-3xl text-center text-sky-600 dark:text-sky-500">Reportes</h1>
+<h1 class="my-4 font-serif text-3xl text-center text-sky-600 dark:text-sky-500">Rendiciones</h1>
 <div class="flex justify-center mt-8">
     <div class="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
         <div class="align-middle inline-block min-w-full shadow overflow-hidden sm:rounded-lg border-b border-gray-200">
