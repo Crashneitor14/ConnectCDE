@@ -1,7 +1,7 @@
 <div class="space-y-4">
     <label class="flex flex-col">
         <span class="flex justify-center font-serif text-slate-600">Nombre Actividad</span>
-        <input class="rounded-md shadow-sm border-slate-250 focus:ring-slate-300 focus:ring-opacity-50 focus:border-slate-300" name="title" type="text" value="{{--old('title', $post->title)--}}">
+        <input class="rounded-md shadow-sm border-slate-250 focus:ring-slate-300 focus:ring-opacity-50 focus:border-slate-300" name="name" type="text" value="{{--old('title', $post->title)--}}">
 
         @error('title')
             <small class="font-bold text-red-500/80">{{$message}}</small>
@@ -9,14 +9,15 @@
     </label>
     {{--seccion estado--}}
     <div class="mx-auto">
-        <label class="my-8" for="estado">Estado:</label>
-        <select name="estado" id="estado" class="mx-auto">
+        <label class="my-8" for="status">Estado:</label>
+        <select name="status" id="status" class="mx-auto">
             <option value="en proceso">En proceso</option>
-            <option value="finalizado">Finalizado</option>
+            <option value="finalizado">Terminado</option>
         </select>
     </div>
-    {{--seccion --}}
-    <label class="flex flex-col">
+
+    {{--Rendiciones ver con script y base de datos aparte--}}
+    {{--<label class="flex flex-col">
         <span class="flex justify-center font-serif text-slate-600">Rendiciones</span>
 
             <div id="gastos-container">
@@ -35,7 +36,7 @@
         <small class="font-bold text-red-500/80">{{$message}}</small>
         @enderror
 
-    </label>
+    </label>--}}
 
     <label class="flex flex-col ">
         <span class="flex justify-center font-serif text-slate-600">Documento</span>
@@ -48,13 +49,20 @@
     </label>
     <label class="flex flex-col">
         <div class="mx-auto">
-            <label class="my-8" for="expiracion">Fecha Termino:</label>
-            <input type="datetime-local" name="expiracion" id="expiracion" value="{{--old('expiracion')--}}">
+            <label class="my-8" for="date_start">Fecha Inicio:</label>
+            <input type="date" name="date_start" id="expiracion" value="{{--old('expiracion')--}}">
+        </div>
+
+    </label>
+    <label class="flex flex-col">
+        <div class="mx-auto">
+            <label class="my-8" for="date_end">Fecha Termino:</label>
+            <input type="date" name="date_end" id="expiracion" value="{{--old('expiracion')--}}">
         </div>
     </label>
     <label class="flex flex-col">
         <span class="flex justify-center font-serif text-slate-600">Observaciones</span>
-        <textarea class="rounded-md shadow-sm border-slate-250 focus:ring-slate-300 focus:ring-opacity-50 focus:border-slate-300" name="details" rows="3">{{--old('details',$post->details)--}}</textarea>
+        <textarea class="rounded-md shadow-sm border-slate-250 focus:ring-slate-300 focus:ring-opacity-50 focus:border-slate-300" name="observation" rows="3">{{--old('details',$post->details)--}}</textarea>
 
         @error('details') {{--detector de errores--}}
         <small class="font-bold text-red-500/80">{{$message}}</small>

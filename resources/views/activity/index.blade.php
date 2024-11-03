@@ -25,8 +25,6 @@
 
 
 
-
-
 </body>
 
 </x-layouts.app>
