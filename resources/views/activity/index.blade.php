@@ -48,20 +48,24 @@
                                 Monto asignado o gastado</td>
 
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                                <a>Fecha inicio</a>
+                                <a>{{$activities->date_start}}</a>
                             </td>
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                                <a>Fecha fin</a>
+                                <a>{{$activities->date_end}}</a>
                             </td>
 
 
 
                             <td class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium">
-                                <a class="text-indigo-600 hover:text-indigo-900">Ver Detalles</a>
+                                <a class="text-indigo-600 hover:text-indigo-900">Editar/Ver Detalles</a>
                             </td>
+                            <form action="{{route('act.destroy',$activities)}}" method="POST">
+                                @csrf
+                            @method('DELETE')
                             <td class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium">
-                                <a class="text-red-600 hover:text-indigo-900">Eliminar</a>
+                                <button class="text-red-600 hover:text-indigo-900">Eliminar</button>
                             </td>
+                            </form>
                         </tr>
                     </tbody>
                     @endforeach

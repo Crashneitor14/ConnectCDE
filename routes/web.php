@@ -34,6 +34,7 @@ Route::resource('publicacion', PostController::class,[
 Route::get('/finanzas', [FinanceController::class, 'index'])->name('act.index')->middleware('auth');
 Route::get('/finanzas/crear', [FinanceController::class, 'create'])->name('act.create')->middleware('auth');
 Route::post('/finanzas', [FinanceController::class, 'store'])->name('act.store')->middleware('auth');
+Route::delete('/finanzas/{id}',[FinanceController::class, 'destroy'])->name('act.destroy')->middleware('auth');
 
 //rutas aun no terminadas
 Route::View('/pruebax', 'test')->name('test');

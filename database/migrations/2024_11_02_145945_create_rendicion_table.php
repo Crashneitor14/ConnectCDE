@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('rendicion', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('activity_id');
-            $table->foreign('activity_id')->references('id')->on('activity')->onDelete('cascade');
+            //$table->foreign('activity_id')->references('id')->on('activity')->onDelete('cascade');
             $table->timestamp('date_ren')->nullable();
             $table->decimal('monto', 8, 2)->nullable();
 
