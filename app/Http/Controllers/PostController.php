@@ -59,7 +59,6 @@ public function store(SavePostRequest $request){ // guardar el post en la base d
         $filename = time() . '-' . $file->getClientOriginalName();
         $uploadSuccess = $request->file('imagen')->move($destinationPath,$filename);
         $newPost->imagen = $destinationPath . $filename;
-
     };
     //fecha expiracion
     $expiresAtInput = $request->input('expiracion');

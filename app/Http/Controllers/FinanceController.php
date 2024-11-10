@@ -24,14 +24,14 @@ class FinanceController extends Controller
         $newActivity = new Activity();
         $newActivity ->name = $request->name;
         $newActivity ->observation = $request->observation;
-        $newActivity ->date_start = Carbon::parse($request->date_start)->format('d-m-Y');
-        $newActivity ->date_end = Carbon::parse($request->date_end)->format('d-m-Y');
+        $newActivity ->date_start = $request->date_start;
+        $newActivity ->date_end = $request->date_end;
         $newActivity ->status;
         //$newActivity ->
         $newActivity ->save();
         return to_route('act.index')->with('status','la actividad se ha creado!');
 
-        //dd($request -> all());
+        //dd($request -> all()); ver lo que imprime el formulario
 
 
     }

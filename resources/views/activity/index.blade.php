@@ -48,10 +48,14 @@
                                 Monto asignado o gastado</td>
 
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                                <a>{{$activities->date_start}}</a>
+                                <a>{{
+                                    Carbon\Carbon::parse($activities->date_start)->format('d-m-Y')
+                                    }}</a>
                             </td>
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                                <a>{{$activities->date_end}}</a>
+                                <a>{{
+                                    Carbon\Carbon::parse($activities->date_end)->format('d-m-Y')
+                                    }}</a>
                             </td>
 
 
