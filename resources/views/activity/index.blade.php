@@ -30,6 +30,7 @@
                     @foreach ($activities as $activities)
                     <tbody class="bg-white">
                         <tr>
+                            {{--Nombre Actividad--}}
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                 <div class="flex items-center">
                                     <div class="ml-4">
@@ -37,32 +38,33 @@
                                     </div>
                                 </div>
                             </td>
+                            {{--Estado Actividad--}}
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                 <div class="ml-4">
                                     {{$activities->status}}
                                 </div>
                             </td>
-
-
+                            {{--Monto Actividad--}}
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
-                                Monto asignado o gastado</td>
-
+                                Monto asignado o gastado
+                            </td>
+                            {{--Fecha inicio Actividad--}}
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                 <a>{{
                                     Carbon\Carbon::parse($activities->date_start)->format('d-m-Y')
                                     }}</a>
                             </td>
+                            {{--Fecha terminado Actividad--}}
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                 <a>{{
                                     Carbon\Carbon::parse($activities->date_end)->format('d-m-Y')
                                     }}</a>
                             </td>
-
-
-
+                            {{--Ver/Editar Actividad--}}
                             <td class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium">
                                 <a class="text-indigo-600 hover:text-indigo-900" href="{{route('act.show',$activities)}}">Editar/Ver Detalles</a>
                             </td>
+                            {{--Eliminar Actividad--}}
                             <form action="{{route('act.destroy',$activities)}}" method="POST">
                                 @csrf
                             @method('DELETE')
@@ -77,21 +79,6 @@
             </div>
         </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </body>
 
 </x-layouts.app>

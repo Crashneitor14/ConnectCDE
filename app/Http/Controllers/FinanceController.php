@@ -29,7 +29,7 @@ class FinanceController extends Controller
         $newActivity ->observation = $request->observation;
         $newActivity ->date_start = $request->date_start;
         $newActivity ->date_end = $request->date_end;
-        $newActivity ->status;
+        $newActivity ->status = $request->status;
         //$newActivity ->
         $newActivity ->save();
         return to_route('act.index')->with('status','la actividad se ha creado!');
@@ -42,7 +42,7 @@ class FinanceController extends Controller
 
         $activities->delete();
 
-        return to_route('act.index')->with('status','la actividad se ha eliminado!');
+        return to_route('act.index')->with('status','La actividad se ha eliminado!');
 
     }
 
