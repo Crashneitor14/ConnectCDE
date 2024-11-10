@@ -10,9 +10,9 @@
     {{--seccion estado--}}
     <div class="mx-auto">
         <label class="my-8" for="status">Estado:</label>
-        <select name="status" id="status" class="mx-auto">
-            <option value="En Proceso">En proceso</option>
-            <option value="Terminado">Terminado</option>
+        <select name="status" class="mx-auto">
+            <option value="en_proceso">En proceso</option>
+            <option value="terminado">Terminado</option>
         </select>
     </div>
 
