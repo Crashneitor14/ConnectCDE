@@ -29,6 +29,7 @@
                         </tr>
                     </thead>
                     @foreach ($activities as $activities)
+                        @if($activities->carrera_user === auth()->user()->carrera)
                     <tbody class="bg-white">
                         <tr>
                             {{--Nombre Actividad--}}
@@ -79,6 +80,7 @@
                             </form>
                         </tr>
                     </tbody>
+                    @endif
                     @endforeach
                 </table>
             </div>
