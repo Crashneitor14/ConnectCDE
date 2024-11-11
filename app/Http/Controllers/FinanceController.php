@@ -17,8 +17,8 @@ class FinanceController extends Controller
         return view('activity.index', ['activities' => $activities]);
     }
     public function show(Activity $activities){   //mostrar el detalle de un post
-        dd($activities -> all());
-        //return view('act.show',['activities' => $activities]);
+        //dd($activities -> all());
+        return view('activity.show',['activity' => $activities]);
 }
     public function create(){ // devolver el formulario para crear post
         return view('activity.create',['activity' => new Activity()]);
