@@ -29,8 +29,7 @@ class RegisteredUserController extends Controller
             'password'=> bcrypt($request->password),
         ]);
 
-        dd($request -> all());
-        //return to_route('menu')->with('status', 'Usuario Registrado');
+        return to_route('menu')->with('status', 'Usuario Registrado');
 
 
 
