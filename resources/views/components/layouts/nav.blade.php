@@ -61,10 +61,11 @@ NAVEGADOR
                 </div>
             </div>
             @else {{--Mostrar acorde rol estudiante (modificar)--}}
-
-                <a href="#">{{ Auth::user()->name }}</a>
-
-            <div class="ml-auto">
+            <div class="flex flex-col space-x-4">
+                <a>{{ Auth::user()->name }}</a>
+                <a>Carrera: {{Auth::user()->carrera}}</a>
+            </div>
+            <div class="flex space-x-4">
                 <form action="{{ route('logout') }}" method="POST">
                         @csrf
                         <button>Cerrar Sesion</button>
