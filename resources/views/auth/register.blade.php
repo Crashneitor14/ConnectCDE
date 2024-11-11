@@ -8,21 +8,32 @@
     @csrf
 
     <div class="space-y-4">
+        {{--Nombre--}}
         <label class="flex flex-col">
             <span class="flex justify-center font-serif text-slate-600">
                 Nombre Estudiante
             </span>
-            {{--Nombre--}}
             <input class="rounded-md shadow-sm border-slate-250 focus:ring-slate-300 focus:ring-opacity-50 focus:border-slate-300"
                 name="name"
                 type="text"
                 value="{{ old('name')}}"
             >
-
             @error('name')
                 <small class="font-bold text-red-500/80">{{$message}}</small>
             @enderror
-
+        </label>
+        {{--Carrera--}}
+        <label class="flex flex-col">
+            <div class="mx-auto">
+                <label class="my-8" for="carrera">Carrera:</label>
+                <select name="carrera" id="carrera" class="mx-auto">
+                    <option value="IECI">IECI</option>
+                    <option value="ICO">ICO</option>
+                    <option value="ICINF">ICINF</option>
+                    <option value="CPA">CPA</option>
+                    <option value="DER">DER</option>
+                </select>
+            </div>
         </label>
         {{--Correo--}}
         <label class="flex flex-col">

@@ -17,6 +17,7 @@ class RegisteredUserController extends Controller
         $request->validate([
             'name' =>['required','string','max:255'],
             'email' =>['required','string','email','max:255','unique:users'],
+            'carrera'   =>['required'],
             'password'=>['required','confirmed', Rules\Password::defaults()],
         ]);
 
@@ -24,10 +25,12 @@ class RegisteredUserController extends Controller
         User::create([
             'name' =>  $request->name,
             'email' => $request->email,
+            'carrera'=>$request->carrera,
             'password'=> bcrypt($request->password),
         ]);
 
-        return to_route('menu')->with('status', 'Usuario Registrado');
+        dd($request -> all());
+        //return to_route('menu')->with('status', 'Usuario Registrado');
 
 
 

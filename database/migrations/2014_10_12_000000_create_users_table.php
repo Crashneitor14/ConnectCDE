@@ -15,6 +15,7 @@ return new class extends Migration
             $table->string('email')->primary();
             $table->string('name');
             $table->string('password');
+            $table->enum('carrera',['IECI', 'ICO', 'ICINF', 'CPA', 'DER']);
             $table->rememberToken();
             $table->timestamps();
         });
