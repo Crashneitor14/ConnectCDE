@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\Activity;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FinanceController extends Controller
 {
@@ -31,6 +32,11 @@ class FinanceController extends Controller
         $newActivity ->date_end = $request->date_end;
         $newActivity ->status = $request->status;
         //$newActivity ->
+        //sacar info de usuario que subio
+        $usuario = Auth::user();
+        $newActivity->user_charge = $usuario->name;
+        $newActivity->carrera_user = $usuario->carrera;
+
         $newActivity ->save();
         return to_route('act.index')->with('status','la actividad se ha creado!');
 

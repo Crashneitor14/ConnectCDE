@@ -20,6 +20,7 @@ return new class extends Migration
             $table->timestamp('date_end')->nullable();
             $table->longText('observation');
             $table->string('user_charge')->nullable();
+            $table->string('carrera_user')->nullable();
             $table->timestamps();
         });
     }
