@@ -48,7 +48,7 @@
                             </td>
                             {{--Monto Actividad--}}
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
-                                Monto asignado o gastado
+                                Monto asignado
                             </td>
                             {{--Fecha inicio Actividad--}}
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
