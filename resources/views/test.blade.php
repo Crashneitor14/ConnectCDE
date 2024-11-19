@@ -4,6 +4,8 @@
 
 >
 <h1 class="my-4 font-serif text-3xl text-center text-sky-600 dark:text-sky-500">Actividades</h1>
+
+
 <div class="flex justify-center mt-8">
 
     <div class="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">

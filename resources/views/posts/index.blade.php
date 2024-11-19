@@ -39,6 +39,7 @@
                         Creado por {{$post->name_user}} {{$post->created_at->diffForHumans()}}
                     </div>
 
+
                     {{--Edicion del post (solo administrador)--}}
                 @auth
                 <div class="flex justify-between ">
@@ -53,6 +54,17 @@
                     dark:text-red-500/80 hover:text-red-600 focus:outline-none" type="submit">Eliminar</button>
                     </form>
                 </div>
+
+
+                <div>
+                <button class="" data-post-id="{{ $post->id }}">
+                    <img src="images/megusta.png" alt="imagen like" width="50"> {{ $post->likes }}
+                </button>
+                <button class="p-44" data-post-id="{{ $post->id }}" >
+                    <img src="images/nomegusta.png" alt="imagen dislike" width="50"> {{ $post->dislikes}}
+                </button>
+                </div>
+
                 @endauth
             </div>
 
