@@ -3,6 +3,7 @@
 use App\Http\Controllers\AutenticatedSessionController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\FinanceController;
+use App\Http\Controllers\VoteController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use PHPUnit\Framework\Attributes\PostCondition;
@@ -36,6 +37,9 @@ Route::get('/finanzas/crear', [FinanceController::class, 'create'])->name('act.c
 Route::post('/finanzas', [FinanceController::class, 'store'])->name('act.store')->middleware('auth');
 Route::get('/finanzas/{activities}', [FinanceController::class, 'show'])->name('act.show')->middleware('auth');
 Route::delete('/finanzas/{activities}',[FinanceController::class, 'destroy'])->name('act.destroy')->middleware('auth');
+//sector votacion
+Route::get('/votacion',[VoteController::class,'index'])->name('vot.index')->middleware('auth');
+
 
 //rutas aun no terminadas
 Route::View('/pruebax', 'test')->name('test');
