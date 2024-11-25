@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Vote;
-use App\Http\Requests\SavePostRequest;
 use Illuminate\Http\Request;
 
 class VoteController extends Controller
@@ -17,9 +16,13 @@ class VoteController extends Controller
         return view('votacion.create',['vote' => new Vote()]);
 
     }
-    public function store(SavePostRequest $request){
+    public function store(Request $request){
+        $newVote = new Vote();
+        $newVote ->name = $request->name;
+        $newVote ->total = $request->total;
 
-        //return $request -> all();
+
+        dd($request -> all());
 
 
     }

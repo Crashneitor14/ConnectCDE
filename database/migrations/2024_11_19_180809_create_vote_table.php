@@ -16,10 +16,9 @@ return new class extends Migration
             $table->string('name');
             $table->string('detalle');
             $table->integer('total');
-            $table->integer('favor');
-            $table->integer('contra');
-            $table->integer('nulo');
             $table->string('imagen')->nullable();
+            $table->longText('observation')->nullable();
+            $table->string('carrera_user')->nullable();
             $table->timestamps();
         });
     }

@@ -40,6 +40,7 @@ Route::delete('/finanzas/{activities}',[FinanceController::class, 'destroy'])->n
 //sector votacion
 Route::get('/votacion',[VoteController::class,'index'])->name('vot.index')->middleware('auth');
 Route::get('/votacion/crear',[VoteController::class,'create'])->name('vot.create')->middleware('auth');
+Route::post('/votacion',[VoteController::class,'store'])->name('vot.store')->middleware('auth');
 
 //rutas aun no terminadas
 Route::View('/pruebax', 'test')->name('test');
