@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('total');
             $table->string('imagen')->nullable();
             $table->longText('observation')->nullable();
+            $table->string('user_charge')->nullable();
             $table->string('carrera_user')->nullable();
             $table->timestamps();
         });

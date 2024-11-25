@@ -20,7 +20,7 @@
                         <tr class="bg-white">
                             <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Nombre Votacion</th>
                             <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Detalle</th>
-                            <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Total</th>
+                            <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Total Votos</th>
                             <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Encargado</th>
                             <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Imagen</th>
                             <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"></th>
@@ -28,42 +28,34 @@
                         </tr>{{--revisar--}}
                     </thead>
                     @foreach ($vote as $vote)
-                        @if($votes->carrera_user === auth()->user()->carrera)
+                        @if($vote->carrera_user === auth()->user()->carrera)
                     <tbody class="bg-white">
                         <tr>
-                            {{--Nombre Actividad--}}
+                            {{--Nombre Votacion--}}
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                 <div class="flex items-center">
                                     <div class="ml-4">
-                                        nombre
+                                        {{$vote->name}}
                                     </div>
                                 </div>
                             </td>
-                            {{--Estado Actividad--}}
+                            {{--Detalle Votacion--}}
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                 <div class="ml-4">
-                                    status
+                                    {{$vote->detalle}}
                                 </div>
                             </td>
-                            {{--Monto Actividad--}}
+                            {{--Total Votos--}}
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
-                                Monto asignado
+                                {{$vote->total}}
                             </td>
-                            {{--Fecha inicio Actividad--}}
+                            {{--Encargado--}}
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                                <a>
-                                    fecha
-                                    </a>
+                                {{$vote->user_charge}} - {{$vote->carrera_user}}
                             </td>
-                            {{--Fecha terminado Actividad--}}
+                            {{--Imagen--}}
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                                <a>
-                                    fecha termino
-                                    </a>
-                            </td>
-                            {{--Estudiante a cargo--}}
-                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
-                                usuario a cargo
+                                Imagen
                             </td>
                             {{--Ver/Editar Actividad--}}
                             <td class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium">

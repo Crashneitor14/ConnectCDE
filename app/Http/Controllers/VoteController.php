@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Vote;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class VoteController extends Controller
 {
@@ -19,11 +20,19 @@ class VoteController extends Controller
     public function store(Request $request){
         $newVote = new Vote();
         $newVote ->name = $request->name;
+        $newVote ->detalle = $request->detalle;
         $newVote ->total = $request->total;
+        $newVote ->observation = $request->observation;
+
+        //sacar info de usuario que subio
+        $usuario = Auth::user();
+        $newVote->user_charge = $usuario->name;
+        $newVote->carrera_user = $usuario->carrera;
 
 
-        dd($request -> all());
-
+        //dd($request -> all());
+        $newVote ->save();
+        return to_route('vot.index')->with('status','Se ha creado el registro de votacion!');
 
     }
 
