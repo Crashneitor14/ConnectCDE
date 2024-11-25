@@ -59,10 +59,10 @@
                             </td>
                             {{--Ver/Editar Actividad--}}
                             <td class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium">
-                                <a class="text-indigo-600 hover:text-indigo-900" href="#{{--route('act.show',$activities)--}}">Editar/Ver Detalles</a>
+                                <a class="text-indigo-600 hover:text-indigo-900" href="{{ route('vot.edit',$vote) }}">Editar/Ver Detalles</a>
                             </td>
                             {{--Eliminar Actividad--}}
-                            <form action="#{{--route('act.destroy',$activities)--}}" method="POST">
+                            <form action="{{ route('vot.destroy',$vote) }}" method="POST">
                                 @csrf
                             @method('DELETE')
                             <td class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium">

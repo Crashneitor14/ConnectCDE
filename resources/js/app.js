@@ -1,3 +1,3 @@
 import './bootstrap'
 
-console.log('prueba solicitud js')
+console.log('prueba solicituddddd js')

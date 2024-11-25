@@ -35,7 +35,18 @@ class VoteController extends Controller
         return to_route('vot.index')->with('status','Se ha creado el registro de votacion!');
 
     }
+    public function edit(Vote $vote){ // formulario de editar el post
+        //dd($vote -> all());
+        return view('votacion.edit', ['vote' => $vote]);
 
+    }
+    public function destroy(Vote $vote){ //destruir el post en la base de datos
+
+        $vote->delete();
+
+
+        return to_route('vot.index')->with('status','El registro ha sido eliminado!');
+    }
 
 
 }
