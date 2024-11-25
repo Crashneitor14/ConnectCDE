@@ -42,6 +42,7 @@ Route::get('/votacion',[VoteController::class,'index'])->name('vot.index')->midd
 Route::get('/votacion/crear',[VoteController::class,'create'])->name('vot.create')->middleware('auth');
 Route::post('/votacion',[VoteController::class,'store'])->name('vot.store')->middleware('auth');
 Route::get('/votacion/{vote}/editar', [VoteController::class, 'edit'])->name('vot.edit')->middleware('auth');
+Route::patch('/votacion/{vote}',[VoteController::class, 'update'])->name('vot.update')->middleware('auth');
 Route::delete('/votacion/{vote}',[VoteController::class, 'destroy'])->name('vot.destroy')->middleware('auth');
 
 //rutas aun no terminadas

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SaveVoteRequest;
 use App\Models\Vote;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -38,6 +39,14 @@ class VoteController extends Controller
     public function edit(Vote $vote){ // formulario de editar el post
         //dd($vote -> all());
         return view('votacion.edit', ['vote' => $vote]);
+
+    }
+    public function update(SaveVoteRequest $request, Vote $vote){ //almacenar los cambios del post a la base de datos
+
+        $vote->update($request -> validated()); //filtra los datos aqui mismo
+
+
+        return to_route('vot.index',$vote)->with('status','El registro ha sido actualizado!');
 
     }
     public function destroy(Vote $vote){ //destruir el post en la base de datos
