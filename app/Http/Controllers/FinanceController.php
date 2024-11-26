@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-use Carbon\Carbon;
 use App\Models\Activity;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -31,7 +30,19 @@ class FinanceController extends Controller
         $newActivity ->date_start = $request->date_start;
         $newActivity ->date_end = $request->date_end;
         $newActivity ->status = $request->status;
-        //$newActivity ->
+        //imagen rendicion
+        if($request->hasFile('imagen')){
+            $file = $request->file('imagen');
+            $destinationPath = 'images/rendiciones/';
+            $filename = time() . '-' . $file->getClientOriginalName();
+            $uploadSuccess = $request->file('imagen')->move($destinationPath,$filename);
+            $newActivity->imagen = $destinationPath . $filename;
+        };
+        //rendiciones
+        $newActivity ->name_rend = $request->name_rend;
+        $newActivity ->tipo_rend = $request->tipo_rend;
+        $newActivity ->monto = $request->monto;
+
         //sacar info de usuario que subio
         $usuario = Auth::user();
         $newActivity->user_charge = $usuario->name;

@@ -24,8 +24,10 @@
                             <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Fecha Inicio</th>
                             <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Fecha Fin</th>
                             <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Encargado</th>
+                            <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Imagen</th>
                             <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"></th>
                             <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"></th>
+
                         </tr>
                     </thead>
                     @foreach ($activities as $activities)
@@ -47,8 +49,10 @@
                                 </div>
                             </td>
                             {{--Monto Actividad--}}
-                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
-                                Monto asignado
+                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                                <div class="ml-4">
+                                    ${{$activities->monto}}
+                                </div>
                             </td>
                             {{--Fecha inicio Actividad--}}
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
@@ -66,6 +70,14 @@
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
                                 {{$activities->user_charge}} - {{$activities->carrera_user}}
                             </td>
+                            {{--Imagen Rendicion--}}
+                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                                @if ($activities->imagen)
+                                    <a href="{{ asset($activities->imagen) }}">Ver imagen</a>
+                                @else
+                                    <p>No hay Imagen</p>
+                                @endif
+                                </td>
                             {{--Ver/Editar Actividad--}}
                             <td class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium">
                                 <a class="text-indigo-600 hover:text-indigo-900" href="{{route('act.show',$activities)}}">Editar/Ver Detalles</a>

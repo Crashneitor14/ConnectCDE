@@ -116,5 +116,26 @@
         </div>
     </div>
 </div>
+<div class="row">
+    <div class="col-md-3">
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" class="form-control">
+    </div>
+    <div class="col-md-3">
+        <label for="monto">Monto:</label>
+        <input type="number" name="monto" step="0.01" class="form-control">
+    </div>
+    <div class="col-md-3">
+        <label for="tipo">Tipo:</label>
+        <select name="tipo" class="form-control">
+            <option value="fijo">Fijo</option>
+            <option value="variable">Variable</option>
+        </select>
+    </div>
+    <div class="col-md-3">
+        <label for="imagen">Imagen:</label>
+        <input type="file" name="imagen" class="form-control">
+    </div>
+</div>
 
 </x-layouts.app>
