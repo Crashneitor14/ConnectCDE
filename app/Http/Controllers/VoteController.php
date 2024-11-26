@@ -24,6 +24,14 @@ class VoteController extends Controller
         $newVote ->detalle = $request->detalle;
         $newVote ->total = $request->total;
         $newVote ->observation = $request->observation;
+        //imagen
+        if($request->hasFile('imagen')){
+            $file = $request->file('imagen');
+            $destinationPath = 'images/votacion/';
+            $filename = time() . '-' . $file->getClientOriginalName();
+            $uploadSuccess = $request->file('imagen')->move($destinationPath,$filename);
+            $newVote->imagen = $destinationPath . $filename;
+        };
 
         //sacar info de usuario que subio
         $usuario = Auth::user();
