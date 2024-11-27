@@ -51,8 +51,7 @@ class VoteController extends Controller
     }
     public function update(SaveVoteRequest $request, Vote $vote){ //almacenar los cambios del post a la base de datos
 
-        $vote->update($request -> validated()); //filtra los datos aqui mismo
-
+        $vote->update(); //filtra los datos aqui mismo
 
         return to_route('vot.index',$vote)->with('status','El registro ha sido actualizado!');
 
