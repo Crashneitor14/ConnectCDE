@@ -27,8 +27,9 @@
             </select>
         </div>
     </label>
+    {{--imagen rendicion--}}
     <label class="flex flex-col">
-        <span class="flex justify-center font-serif text-slate-600">Registro Rendiciones</span>
+        <span class="flex justify-center font-serif text-slate-600">Documento Rendicion</span>
         <input class="mx-auto" type="file" name="imagen" accept="image/*">
 
         @error('imagen')

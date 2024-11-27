@@ -21,27 +21,16 @@
         </select>
     </div>
     </label>
-    {{--Rendiciones ver con script y base de datos aparte--}}
-    {{--<label class="flex flex-col">
-        <span class="flex justify-center font-serif text-slate-600">Rendiciones</span>
-
-            <div id="gastos-container">
-                <div class="input-group mb-2">
-                    <input type="number" name="gastos[0][monto]" class="form-control gasto-input" placeholder="Monto del gasto">
-                    <select name="gastos[0][tipo_financiamiento]" class="form-control">
-                        <option value="interno">Interno</option>
-                        <option value="externo">Facultad</option>
-                        <option value="externo">DDE</option>
-                    </select>
-                </div>
-            </div>
-
-
-        @error('body')
-        <small class="font-bold text-red-500/80">{{$message}}</small>
-        @enderror
-
-    </label>--}}
+    <label class="flex flex-col">
+        <div class="flex items-center flex-1 sm:items-stretch sm:justify-start">
+            <input class="rounded-md shadow-sm focus:ring-slate-300 focus:ring-opacity-50" name="name_rend" type="text" value="{{ old('name_rend', $activity->name_rend) }}">
+            <input type="number_format" name="monto" class="w-24 border border-gray-300 rounded px-3 py-2" value="{{ old('monto', $activity->monto) }}">
+            <select name="tipo_rend" type="integer" id="tipo_rend" class="mx-auto" value="{{old('tipo_rend', $activity->tipo_rend)}}">
+                <option value="DDE">DDE</option>
+                <option value="Externo">Externo</option>
+            </select>
+        </div>
+    </label>
 
     <label class="flex flex-col ">
         <span class="flex justify-center font-serif text-slate-600">Documento</span>
@@ -55,14 +44,14 @@
     <label class="flex flex-col">
         <div class="mx-auto">
             <label class="my-8" for="date_start">Fecha Inicio:</label>
-            <input type="date" name="date_start" value="{{--old('date_start', $activity->date_start)--}}">
+            <input type="date" name="date_start" value="{{ old('date_start', $activity->date_start) }}">
         </div>
 
     </label>
     <label class="flex flex-col">
         <div class="mx-auto">
             <label class="my-8" for="date_end">Fecha Termino:</label>
-            <input type="date" name="date_end" value="{{--old('date_end')--}}">
+            <input type="date" name="date_end" value="{{ old('date_end', $activity->date_end) }}">
         </div>
     </label>
     <label class="flex flex-col">
