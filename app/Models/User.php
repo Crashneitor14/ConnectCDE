@@ -21,7 +21,7 @@ class User extends Authenticatable
         'name',
         'password',
     ];
-    
+
     protected $primaryKey = 'email';
     public $incrementing = false;
     /**
@@ -43,4 +43,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+    public function likes(){
+        return $this->belongsToMany(Post::class,'post_like')->withTimestamps();
+    }
 }

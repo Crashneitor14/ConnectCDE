@@ -9,4 +9,8 @@ class Post extends Model
 {
     use HasFactory;
     //protected $guarded = []; NUNCA HACER FUNCION "($REQUEST->all());
+
+    public function likes(){
+        return $this->belongsToMany(User::class,'post_like')->withTimestamps();
+    }
 }
