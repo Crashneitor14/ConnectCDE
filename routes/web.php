@@ -32,7 +32,7 @@ Route::resource('publicacion', PostController::class,[
     'parameters' => ['publicacion' => 'post']
 
 ]);
-//like y dislike
+//prueba para like y dislike(?
 Route::post('/publicacion/{post}/like', [LikeController::class, 'like'])->middleware('auth')->name('posts.like');
 Route::post('/publicacion/{post}/dislike', [LikeController::class, 'dislike'])->middleware('auth')->name('posts.dislike');
 
