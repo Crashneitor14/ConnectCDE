@@ -31,6 +31,10 @@ Route::resource('publicacion', PostController::class,[
     'parameters' => ['publicacion' => 'post']
 
 ]);
+//like y dislike
+//Route::post('/publicacion/{post}/like', [PostController::class, 'like'])->middleware('auth')->name('posts.like');
+//Route::post('/publicacion/{post}/dislike', [PostController::class, 'dislike'])->middleware('auth')->name('posts.dislike');
+
 //sector finanza
 Route::get('/finanzas', [FinanceController::class, 'index'])->name('act.index')->middleware('auth');
 Route::get('/finanzas/crear', [FinanceController::class, 'create'])->name('act.create')->middleware('auth');
