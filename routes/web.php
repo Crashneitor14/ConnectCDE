@@ -3,6 +3,7 @@
 use App\Http\Controllers\AutenticatedSessionController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\FinanceController;
+use App\Http\Controllers\LikeController;
 use App\Http\Controllers\VoteController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
@@ -32,8 +33,8 @@ Route::resource('publicacion', PostController::class,[
 
 ]);
 //like y dislike
-//Route::post('/publicacion/{post}/like', [PostController::class, 'like'])->middleware('auth')->name('posts.like');
-//Route::post('/publicacion/{post}/dislike', [PostController::class, 'dislike'])->middleware('auth')->name('posts.dislike');
+Route::post('/publicacion/{post}/like', [LikeController::class, 'like'])->middleware('auth')->name('posts.like');
+Route::post('/publicacion/{post}/dislike', [LikeController::class, 'dislike'])->middleware('auth')->name('posts.dislike');
 
 //sector finanza
 Route::get('/finanzas', [FinanceController::class, 'index'])->name('act.index')->middleware('auth');

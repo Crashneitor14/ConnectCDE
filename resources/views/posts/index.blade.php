@@ -56,10 +56,16 @@
                 </div>
 
 
+
+
+
                 <div>
-                <button class="" data-post-id="{{ $post->id }}">
-                    <img src="images/megusta.png" alt="imagen like" width="50"> {{ $post->likes }}
+                <form action="{{ route('posts.like',$post->id) }}" method="POST">
+                    @csrf
+                <button type="submit">
+                    <img src="images/megusta.png" alt="imagen like" width="50"> {{ $post->likes()->count() }}
                 </button>
+                </form>
                 <button class="p-44" data-post-id="{{ $post->id }}" >
                     <img src="images/nomegusta.png" alt="imagen dislike" width="50"> {{ $post->dislikes}}
                 </button>

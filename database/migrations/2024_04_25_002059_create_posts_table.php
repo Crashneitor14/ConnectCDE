@@ -18,8 +18,7 @@ return new class extends Migration
             $table->longText('details');
             $table->string('imagen')->nullable(); //prueba
             $table->timestamp('expiracion')->nullable();
-            $table->integer('likes')->default(0);
-            $table->integer('dislikes')->default(0);
+            $table->unsignedInteger('likes')->default(0);
             $table->string('name_user')->nullable();
             $table->timestamps();
         });
