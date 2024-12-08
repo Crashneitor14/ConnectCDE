@@ -60,15 +60,23 @@
 
 
                 <div>
-                <form action="{{ route('posts.like',$post->id) }}" method="POST">
-                    @csrf
-                <button type="submit">
-                    <img src="images/megusta.png" alt="imagen like" width="50"> {{ $post->likes()->count() }}
-                </button>
-                </form>
-                <button class="p-44" data-post-id="{{ $post->id }}" >
-                    <img src="images/nomegusta.png" alt="imagen dislike" width="50"> {{ $post->dislikes}}
-                </button>
+                    @if (Auth::user()->PostLike($post))
+                        <form action="{{ route('posts.like',$post->id) }}" method="POST">
+                        @csrf
+                        <button type="submit">
+                            <img src="images/megusta2.png" alt="imagen like" width="64"> Likes: {{ $post->likes()->count() }}
+                        </button>
+                        </form>
+                    @else
+                        <form action="{{ route('posts.dislike',$post->id) }}" method="POST">
+                        @csrf
+                        <button type="submit">
+                            <img src="images/megusta.png" alt="imagen dislike" width="25">Likes: {{ $post->likes()->count() }}
+                        </button>
+                        </form>
+                    @endif
+
+
                 </div>
 
                 @endauth
