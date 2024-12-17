@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\SavePostRequest;
+use Illuminate\Support\Facades\Storage;
 use App\Models\Post;
 use Carbon\Carbon;
 use App\Http\Controllers\File;
@@ -83,14 +84,29 @@ public function store(SavePostRequest $request){ // guardar el post en la base d
 
 public function edit(Post $post){ // formulario de editar el post
 
+
     return view('posts.edit', ['post' => $post]);
 
 }
 
 public function update(SavePostRequest $request, Post $post){ //almacenar los cambios del post a la base de datos
+    if ($request->hasFile('imagen')) {
+        // Eliminar imagen anterior si existe
+        $imagePath = $post->imagen;
+        unlink(public_path($imagePath));
 
+        // Subir nueva imagen y guardar la ruta
+        $file = $request->file('imagen');
+        $destinationPath = 'images/imagenes/';
+        $filename = time() . '-' . $file->getClientOriginalName();
+        $uploadSuccess = $request->file('imagen')->move($destinationPath,$filename);
+        $post->imagen = $destinationPath . $filename;
+    }
     $post->update($request->validated()); //filtra los datos aqui mismo
 
+
+
+    //return $request -> all();
 
     return to_route('posts.show',$post)->with('status','El post ha sido actualizado!');
 
