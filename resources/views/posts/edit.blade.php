@@ -3,7 +3,7 @@
     :meta-description="$post->body"
 >   <h1 class="my-4 font-serif text-3xl text-center text-sky-600 dark:text-sky-500">Modificar Publicacion</h1>
 
-<form class="max-w-xl px-8 py-4 mx-auto bg-slate-300 rounded shadow" action="{{route('posts.update',$post)}}" method="POST">
+<form class="max-w-xl px-8 py-4 mx-auto bg-slate-300 rounded shadow" action="{{route('posts.update',$post)}}" method="POST" enctype="multipart/form-data">
     @csrf @method('PATCH')
     @include('posts.form')
 

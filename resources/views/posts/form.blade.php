@@ -32,8 +32,11 @@
 <label class="flex flex-col">
     <div class="mx-auto">
         <label class="my-8" for="expiracion">Fecha Termino:</label>
-        <input type="datetime-local" name="expiracion" id="expiracion" value="{{ old('expiracion') }}">
+        <input type="datetime-local" name="expiracion" id="expiracion" value="{{ old('expiracion', date('Y-m-d\TH:i:s')) }}">
     </div>
+    @error('expiracion') {{--detector de errores--}}
+    <small class="font-bold text-red-500/80">{{$message}}</small>
+    @enderror
 </label>
 <label class="flex flex-col">
     <span class="flex justify-center font-serif text-slate-600">Detalles Publicacion</span>
