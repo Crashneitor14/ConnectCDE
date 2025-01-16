@@ -8,12 +8,13 @@
         @enderror
     </label>
     {{--seccion estado--}}
-    <div class="mx-auto">
-        <label class="my-8" for="status">Estado:</label>
-        <select name="status" id="status" class="mx-auto">
-            <option value="En Proceso">En proceso</option>
-            <option value="Terminado">Terminado</option>
-        </select>
+    <div class="flex justify-center ">
+        <label class="my-8" for="status">Estado:
+            <select name="status" id="status" class="mx-auto">
+                <option value="En Proceso">En proceso</option>
+                <option value="Terminado">Terminado</option>
+            </select>
+        </label>
     </div>
     <span class="flex justify-center font-serif text-slate-600">Rendiciones</span>
     {{--seccion rendicion--}}

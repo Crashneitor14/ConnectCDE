@@ -58,13 +58,13 @@
                             {{--Fecha inicio Actividad--}}
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                 <a>{{
-                                    Carbon\Carbon::parse($activities->date_start)->format('d-m-Y')
+                                    $activities->date_start->format('d-m-Y')
                                     }}</a>
                             </td>
                             {{--Fecha terminado Actividad--}}
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                 <a>{{
-                                    Carbon\Carbon::parse($activities->date_end)->format('d-m-Y')
+                                    $activities->date_end->format('d-m-Y')
                                     }}</a>
                             </td>
                             {{--Entidad Actividad--}}

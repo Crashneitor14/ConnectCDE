@@ -44,16 +44,17 @@
     <label class="flex flex-col">
         <div class="mx-auto">
             <label class="my-8" for="date_start">Fecha Inicio:</label>
-            <input type="date" name="date_start" value="{{ old('date_start', $activity->date_start) }}">
+            <p>{{ $activity->date_start->format('d/m/Y') }}</p>
         </div>
 
     </label>
     <label class="flex flex-col">
         <div class="mx-auto">
             <label class="my-8" for="date_end">Fecha Termino:</label>
-            <input type="date" name="date_end" value="{{ old('date_end', $activity->date_end) }}">
+            <p>{{$activity->date_end->format('d/m/Y')}}</p>
         </div>
     </label>
+
     <label class="flex flex-col">
         <span class="flex justify-center font-serif text-slate-600">Observaciones</span>
         <textarea class="rounded-md shadow-sm border-slate-250 focus:ring-slate-300 focus:ring-opacity-50 focus:border-slate-300" name="observation" rows="3">{{ old('observation',$activity->observation) }}</textarea>

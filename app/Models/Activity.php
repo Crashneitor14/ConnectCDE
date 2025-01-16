@@ -16,4 +16,8 @@ class Activity extends Model
         'date_start' => 'date',
         'date_end' => 'date',
     ];
+    public function Report()
+    {
+        return $this->hasMany(Report::class);
+    }
 }
