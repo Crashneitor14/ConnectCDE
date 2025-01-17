@@ -26,6 +26,7 @@
                             <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Entidad</th>
                             <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Encargado</th>
                             <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Imagen</th>
+                            <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Rendiciones</th>
                             <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"></th>
                             <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"></th>
 
@@ -85,6 +86,10 @@
                                     <p>No hay Imagen</p>
                                 @endif
                                 </td>
+                            {{--Redireccion a rendiciones--}}
+                            <td class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium">
+                                <a class="text-indigo-600 hover:text-indigo-900" href="#">Ver Boletas</a>
+                            </td>
                             {{--Ver/Editar Actividad--}}
                             <td class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium">
                                 <a class="text-indigo-600 hover:text-indigo-900" href="{{route('act.show',$activities)}}">Editar/Ver Detalles</a>
