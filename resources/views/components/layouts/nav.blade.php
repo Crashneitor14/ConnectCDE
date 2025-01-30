@@ -26,8 +26,8 @@ NAVEGADOR
                         </a>
                         <a href="{{ route('posts.index')}}"
                         class="px-3 py-2 text-sm font-medium rounded-md hover:text-sky-600 dark:hover:text-dark {{ request()->routeIs('posts.*') ? 'text-sky-600 ' : 'text-slate-250'}}">
-                        Publicaciones
-                    </a>
+                            Publicaciones
+                        </a>
                     @auth
                         <a href="{{ route('act.index')}}"
                             class="px-3 py-2 text-sm font-medium rounded-md hover:text-sky-600 dark:hover:text-dark {{ request()->routeIs('activity.*') ? 'text-sky-600 ' : 'text-slate-250'}}">
@@ -37,8 +37,11 @@ NAVEGADOR
                             class="px-3 py-2 text-sm font-medium rounded-md hover:text-sky-600 dark:hover:text-dark {{ request()->routeIs('votacion.*') ? 'text-sky-600 ' : 'text-slate-250'}}">
                             Votaciones
                         </a>
+                        <a href="{{-- route('contact')--}}"
+                            class="px-3 py-2 text-sm font-medium rounded-md hover:text-sky-600 dark:hover:text-dark {{-- request()->routeIs('contact') ? 'text-sky-600 ' : 'text-slate-250' --}}">
+                            Consultas
+                        </a>
                     @endauth
-
                         <a href="{{ route('contact')}}"
                             class="px-3 py-2 text-sm font-medium rounded-md hover:text-sky-600 dark:hover:text-dark {{ request()->routeIs('contact') ? 'text-sky-600 ' : 'text-slate-250'}}">
                             Contacto
@@ -47,35 +50,35 @@ NAVEGADOR
                 </div>
 
             </div>
-            @guest {{--Mostrar index--}}
-            <div class="ml-auto">
-                <div class="flex space-x-4">
-                    <a href="{{ route('login')}}"
-                        class="px-3 py-2 text-sm font-medium rounded-md hover:text-sky-600 dark:hover:text-dark {{ request()->routeIs('login') ? 'text-sky-600 ' : 'text-slate-250'}}">
-                        Iniciar Sesion
-                </a>
-                </div>
-            </div>
-            <div class="ml-auto">
-                <div class="flex space-x-4">
-                    <a href="{{ route('register')}}"
-                        class="px-3 py-2 text-sm font-medium rounded-md hover:text-sky-600 dark:hover:text-dark {{ request()->routeIs('register') ? 'text-sky-600 ' : 'text-slate-250'}}">
-                        Registrarse
-                </a>
-                </div>
-            </div>
-            @else {{--Mostrar acorde rol estudiante (modificar)--}}
-            <div class="flex flex-col space-x-4">
-                <a>{{ Auth::user()->name }}</a>
-                <a>Carrera: {{Auth::user()->carrera}}</a>
-            </div>
-            <div class="flex space-x-4">
-                <form action="{{ route('logout') }}" method="POST">
-                        @csrf
-                        <button>Cerrar Sesion</button>
-                </form>
-            </div>
-            @endguest
+                @guest {{--Mostrar index--}}
+                    <div class="ml-auto">
+                        <div class="flex space-x-4">
+                            <a href="{{ route('login')}}"
+                                class="px-3 py-2 text-sm font-medium rounded-md hover:text-sky-600 dark:hover:text-dark {{ request()->routeIs('login') ? 'text-sky-600 ' : 'text-slate-250'}}">
+                                Iniciar Sesion
+                        </a>
+                        </div>
+                    </div>
+                    <div class="ml-auto">
+                        <div class="flex space-x-4">
+                            <a href="{{ route('register')}}"
+                                class="px-3 py-2 text-sm font-medium rounded-md hover:text-sky-600 dark:hover:text-dark {{ request()->routeIs('register') ? 'text-sky-600 ' : 'text-slate-250'}}">
+                                Registrarse
+                        </a>
+                        </div>
+                    </div>
+                @else {{--Mostrar acorde rol estudiante (modificar)--}}
+                    <div class="flex flex-col space-x-4">
+                        <a>{{ Auth::user()->name }}</a>
+                        <a>Carrera: {{Auth::user()->carrera}}</a>
+                    </div>
+                    <div class="flex space-x-4">
+                        <form action="{{ route('logout') }}" method="POST">
+                                @csrf
+                                <button>Cerrar Sesion</button>
+                        </form>
+                    </div>
+                @endguest
 
         </div>
     </div>
