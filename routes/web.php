@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\FinanceController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\VoteController;
+use App\Http\Controllers\ConsultController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use PHPUnit\Framework\Attributes\PostCondition;
@@ -55,7 +56,8 @@ Route::View('/pruebax', 'test')->name('test');
 
 
 //consulta
-Route::view('/consultas', 'consulta')-> name('consult');
+Route::get('/consultas', [ConsultController::class, 'index'])-> name('cons.index');
+Route::get('/consultas/crear', [ConsultController::class, 'create'])-> name('cons.create');
 
 //contactos
 Route::view('/contacto', 'contacto')-> name('contact');
