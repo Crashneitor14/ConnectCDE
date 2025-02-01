@@ -54,6 +54,8 @@ Route::delete('/votacion/{vote}',[VoteController::class, 'destroy'])->name('vot.
 Route::View('/pruebax', 'test')->name('test');
 
 
+//consulta
+Route::view('/consultas', 'consulta')-> name('consult');
 
 //contactos
 Route::view('/contacto', 'contacto')-> name('contact');

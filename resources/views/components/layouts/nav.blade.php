@@ -37,8 +37,8 @@ NAVEGADOR
                             class="px-3 py-2 text-sm font-medium rounded-md hover:text-sky-600 dark:hover:text-dark {{ request()->routeIs('votacion.*') ? 'text-sky-600 ' : 'text-slate-250'}}">
                             Votaciones
                         </a>
-                        <a href="{{-- route('contact')--}}"
-                            class="px-3 py-2 text-sm font-medium rounded-md hover:text-sky-600 dark:hover:text-dark {{-- request()->routeIs('contact') ? 'text-sky-600 ' : 'text-slate-250' --}}">
+                        <a href="{{ route('consult')}}"
+                            class="px-3 py-2 text-sm font-medium rounded-md hover:text-sky-600 dark:hover:text-dark {{ request()->routeIs('consult') ? 'text-sky-600 ' : 'text-slate-250'}}">
                             Consultas
                         </a>
                     @endauth
