@@ -8,7 +8,6 @@ use App\Http\Controllers\VoteController;
 use App\Http\Controllers\ConsultController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
-use PHPUnit\Framework\Attributes\PostCondition;
 
 // /index
 // /contact
