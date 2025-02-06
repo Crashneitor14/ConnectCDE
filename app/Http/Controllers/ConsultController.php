@@ -13,9 +13,9 @@ class ConsultController extends Controller
         $consult = Consult::get();
         return view('consults.index', ['consult' => $consult]);
     }
-    public function show(Request $request)
+    public function edit(Consult $consult)
     {
-        //return view('consults.show',['consult' => $consults]);
+        return view('consults.edit',['consult' => $consult]);
     }
     public function create(){ // devolver el formulario para crear post
         return view('consults.create'

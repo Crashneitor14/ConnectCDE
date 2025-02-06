@@ -3,7 +3,7 @@
     meta-description="Editar Votacion"
 >   <h1 class="my-4 font-serif text-3xl text-center text-sky-600 dark:text-sky-500">Modificar Votacion</h1>
 
-<form class="max-w-xl px-8 py-4 mx-auto bg-slate-300 rounded shadow" action="{{route('vot.update',$vote)}}" method="POST">
+<form class="max-w-xl px-8 py-4 mx-auto bg-slate-300 rounded shadow" action="{{route('vot.update',$vote)}}" method="POST" enctype="multipart/form-data">
     @csrf @method('PATCH')
     @include('votacion.form')
 
