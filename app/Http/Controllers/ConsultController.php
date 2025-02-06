@@ -35,8 +35,12 @@ class ConsultController extends Controller
         $newConsult->Correo_est = $usuario->email;
 
         $newConsult -> save();
-        return to_route('cons.create')->with('status','la actividad se ha creado!');
+        return to_route('cons.create')->with('status','la consulta ha sido creada!');
 
+    }
+    public function destroy(Consult $consult){
+        $consult->delete();
+        return to_route('cons.index')->with('status','La consulta ha sido eliminada!');
     }
 
 

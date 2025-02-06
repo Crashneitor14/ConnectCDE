@@ -49,9 +49,13 @@
                                     <td class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium">
                                         <a class="text-indigo-600 hover:text-indigo-900">Ver Detalles</a>
                                     </td>
+                                    <form action="{{route('cons.destroy',$consult)}}" method="POST">
+                                        @csrf
+                                    @method('DELETE')
                                     <td class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium">
-                                        <a class="text-red-600 hover:text-indigo-900">Eliminar</a>
+                                        <button class="text-red-600 hover:text-indigo-900">Eliminar</button>
                                     </td>
+                                    </form>
                                 </tr>
                             </tbody>
 
