@@ -35,7 +35,7 @@ NAVEGADOR
                         </a>
                         <a href="{{ route('vot.index') }}"
                             class="px-3 py-2 text-sm font-medium rounded-md hover:text-sky-600 dark:hover:text-dark {{ request()->routeIs('votacion.*') ? 'text-sky-600 ' : 'text-slate-250'}}">
-                            Votaciones
+                            Votacionessss
                         </a>
                         <a href="{{ route('cons.index')}}"
                             class="px-3 py-2 text-sm font-medium rounded-md hover:text-sky-600 dark:hover:text-dark {{ request()->routeIs('consult') ? 'text-sky-600 ' : 'text-slate-250'}}">
