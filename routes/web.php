@@ -58,6 +58,7 @@ Route::View('/pruebax', 'test')->name('test');
 Route::get('/consultas', [ConsultController::class, 'index'])-> name('cons.index');
 Route::get('/consultas/crear', [ConsultController::class, 'create'])-> name('cons.create');
 Route::post('/consultas', [ConsultController::class, 'store'])->name('cons.store')->middleware('auth');
+//Route::get('/finanzas/{consult}', [ConsultController::class, 'show'])->name('cons.show')->middleware('auth');
 
 //contactos
 Route::view('/contacto', 'contacto')-> name('contact');

@@ -24,36 +24,40 @@
                         <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"></th>
                     </tr>
                 </thead>
+                @foreach ($consult as $consult)
+                            <tbody class="bg-white">
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                                        <div class="flex items-center">
+                                            <div class="ml-4">
+                                                {{$consult->name}}
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                                        {{$consult->status}}
+                                    </td>
 
-                <tbody class="bg-white">
-                    <tr>
-                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                            <div class="flex items-center">
-                                <div class="ml-4">
-                                    <a>Nombre Asunto</a>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                            <a>Poner estado Consulta</a>
-                        </td>
+
+                                    <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
+                                        {{$consult->Correo_est}}
+
+                                    <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                                        {{$consult->created_at->format('d-m-Y')}}
+                                    </td>
+
+                                    <td class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium">
+                                        <a class="text-indigo-600 hover:text-indigo-900">Ver Detalles</a>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium">
+                                        <a class="text-red-600 hover:text-indigo-900">Eliminar</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+
+                @endforeach
 
 
-                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
-                            Monto asignado o gastado</td>
-
-                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                            <a>Fecha al que se hizo el envio</a>
-                        </td>
-
-                        <td class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium">
-                            <a class="text-indigo-600 hover:text-indigo-900">Ver Detalles</a>
-                        </td>
-                        <td class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium">
-                            <a class="text-red-600 hover:text-indigo-900">Eliminar</a>
-                        </td>
-                    </tr>
-                </tbody>
             </table>
         </div>
     </div>
