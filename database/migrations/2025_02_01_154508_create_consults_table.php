@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('consults', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
+            $table->string('name');
             $table->enum('status',['En Revision', 'Respondido']);
-            $table->string('mensaje');
+            $table->string('message');
             $table->string('Correo_est');
             $table->timestamps();
         });
