@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Consult;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class ConsultController extends Controller
 {
@@ -33,6 +34,12 @@ class ConsultController extends Controller
         //sacar info de usuario que subio
         $usuario = Auth::user();
         $newConsult->Correo_est = $usuario->email;
+
+        //enviar consulta al correo especifico (ver conflicto entre correos de CEE estudiantes y CEE unico)
+        //Mail::send();
+
+
+
 
         $newConsult -> save();
         return to_route('cons.create')->with('status','la consulta ha sido creada!');
