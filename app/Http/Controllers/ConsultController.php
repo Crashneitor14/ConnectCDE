@@ -38,6 +38,14 @@ class ConsultController extends Controller
         return to_route('cons.create')->with('status','la consulta ha sido creada!');
 
     }
+    public function update(Consult $consult){ //almacenar los cambios del post a la base de datos
+
+        $consult->update(); //filtra los datos aqui mismo
+
+        //return to_route('cons.index',$consult)->with('status','la consulta ha sido actualizada!');
+        dd($consult -> all());
+    }
+
     public function destroy(Consult $consult){
         $consult->delete();
         return to_route('cons.index')->with('status','La consulta ha sido eliminada!');

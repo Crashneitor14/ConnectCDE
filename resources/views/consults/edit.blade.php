@@ -4,8 +4,8 @@
 >
     <h1 class="my-4 font-serif text-3xl text-center text-sky-600 dark:text-sky-500">Crear consulta</h1>
 
-    <form class="max-w-xl px-8 py-4 mx-auto bg-slate-300 rounded shadow" action="{{--route('cons.store')--}}" method="POST" enctype="multipart/form-data">
-        @csrf
+    <form class="max-w-xl px-8 py-4 mx-auto bg-slate-300 rounded shadow" action="{{route('cons.update',$consult)}}" method="POST" enctype="multipart/form-data">
+        @csrf @method('PATCH')
         @include('consults.form')
 
         <div class="flex items-center justify-between mt-4">
