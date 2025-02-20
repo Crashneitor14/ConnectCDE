@@ -27,6 +27,10 @@ class SaveVoteRequest extends FormRequest
         }
         return [
             //
+            'name'=> ['required', 'min:4'],
+            'detalle'=> ['required'],
+            'total'=> ['required', 'numeric'],
+            'observation'=> ['required'],
 
         ];
     }

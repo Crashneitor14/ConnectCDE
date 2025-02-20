@@ -18,10 +18,8 @@ class ConsultController extends Controller
     {
         return view('consults.edit',['consult' => $consult]);
     }
-    public function create(){ // devolver el formulario para crear post
-        return view('consults.create'
-        //,['vote' => new Vote()]
-        );
+    public function create(){
+        return view('consults.create');
 
     }
     public function store(Request $request)
@@ -45,12 +43,12 @@ class ConsultController extends Controller
         return to_route('cons.create')->with('status','la consulta ha sido creada!');
 
     }
-    public function update(Consult $consult){ //almacenar los cambios del post a la base de datos
+    public function update(Consult $consult){ //almacenar  a la base de datos
 
         $consult->update(); //filtra los datos aqui mismo
 
         //return to_route('cons.index',$consult)->with('status','la consulta ha sido actualizada!');
-        dd($consult -> all());
+        return $consult -> all();
     }
 
     public function destroy(Consult $consult){
