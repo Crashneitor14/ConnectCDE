@@ -7,6 +7,7 @@
     <title>ConnectCDE - {{ $title ?? '' }}</title>
     <meta name="description" content="{{ $metaDescription ?? 'Default meta-description'}}"/>
     <link rel="stylesheet" href="/css/app.scss">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <script src="/js/app.js"></script>
     @vite(['resources/css/app.scss','resources/js/app.js'])
 </head>
