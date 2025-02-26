@@ -6,6 +6,7 @@ use App\Http\Controllers\FinanceController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\VoteController;
 use App\Http\Controllers\ConsultController;
+use App\Http\Controllers\CeeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 
@@ -64,7 +65,7 @@ Route::delete('/consultas/{consult}',[ConsultController::class, 'destroy'])->nam
 
 
 //contactos
-Route::view('/contacto', 'contacto')-> name('contact');
+Route::get('/contacto',[CeeController::class, 'index'])-> name('contact');
 
 
 //login
