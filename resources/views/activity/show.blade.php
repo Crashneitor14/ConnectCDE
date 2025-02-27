@@ -2,7 +2,7 @@
     :title="$activity->name"
     :meta-description="$activity->name"
 >
-<div class="max-w-xl w-50 space-y-4 bg-grey rounded shadow bg-slate-280 m-auto grid w-full gap-8  sm:grid-cols-1 md:grid-cols-1max-w-xl px-8 py-4 mx-auto bg-slate-300">
+    <div class="max-w-xl w-50 space-y-4 bg-grey rounded shadow bg-slate-280 m-auto grid w-full gap-8  sm:grid-cols-1 md:grid-cols-1max-w-xl px-8 py-4 mx-auto bg-slate-300">
     <label class="flex flex-col">
         <span class="flex justify-center font-serif text-slate-600">Nombre Actividad</span>
         <input class="rounded-md shadow-sm border-slate-250 focus:ring-slate-300 focus:ring-opacity-50 focus:border-slate-300" name="name" type="text" value="{{ old('name', $activity->name) }}">
@@ -32,21 +32,12 @@
         </div>
     </label>
 
-    <label class="flex flex-col ">
-        <span class="flex justify-center font-serif text-slate-600">Documento</span>
-        <input class="mx-auto" type="file" name="imagen" accept="image/*">
 
-        @error('imagen')
-        <small class="font-bold text-red-500/80">{{$message}}</small>
-        @enderror
-
-    </label>
     <label class="flex flex-col">
         <div class="mx-auto">
             <label class="my-8" for="date_start">Fecha Inicio:</label>
             <p>{{ $activity->date_start->format('d/m/Y') }}</p>
         </div>
-
     </label>
     <label class="flex flex-col">
         <div class="mx-auto">

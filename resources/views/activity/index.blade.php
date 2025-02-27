@@ -75,7 +75,7 @@
                                 </div>
                             </td>
                             {{--Estudiante a cargo--}}
-                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
+                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                 {{$activities->user_charge}} - {{$activities->carrera_user}}
                             </td>
                             {{--Imagen Rendicion--}}

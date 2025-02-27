@@ -67,6 +67,7 @@
                             <img src="images/megusta2.png" alt="imagen like" width="64"> Likes: {{ $post->likes()->count() }}
                         </button>
                         </form>
+
                     @else
                         <form action="{{ route('posts.dislike',$post->id) }}" method="POST">
                         @csrf
