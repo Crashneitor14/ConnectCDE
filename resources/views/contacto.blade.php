@@ -7,13 +7,14 @@
 
 <body class="bg-gray-100">
     <div class="container mx-auto p-4">
-        <h1 class="text-2xl text-center font-bold mb-4">IECI</h1>
+        <h1 class="text-2xl text-center font-bold mb-4"></h1>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             @foreach ($cees as $estudiante)
                 <div class="bg-white rounded-lg shadow-md p-4 flex items-center">
 
-                        <img src="" alt="" class="w-16 h-16 rounded-full mr-4">
+
+                        <img src="{{ asset('images/CEE/' . $estudiante->id . '.png') }}" alt="" class="w-16 h-16 rounded-full mr-4">
 
                     <div>
                         <h2 class="text-lg font-semibold">{{$estudiante->name}}</h2>
