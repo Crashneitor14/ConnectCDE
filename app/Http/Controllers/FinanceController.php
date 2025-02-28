@@ -56,8 +56,11 @@ class FinanceController extends Controller
 
     }
     public function destroy(Activity $activities){
-
+        $imagePath = $activities->imagen;
         $activities->delete();
+        if ($imagePath && file_exists(public_path($imagePath))) {
+            unlink(public_path($imagePath));
+        }
 
         return to_route('act.index')->with('status','La actividad se ha eliminado!');
 
