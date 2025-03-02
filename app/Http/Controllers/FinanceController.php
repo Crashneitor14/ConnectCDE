@@ -33,7 +33,7 @@ class FinanceController extends Controller
         //imagen rendicion
         if($request->hasFile('imagen')){
             $file = $request->file('imagen');
-            $destinationPath = 'images/rendiciones/';
+            $destinationPath = 'images/actividad/';
             $filename = time() . '-' . $file->getClientOriginalName();
             $uploadSuccess = $request->file('imagen')->move($destinationPath,$filename);
             $newActivity->imagen = $destinationPath . $filename;

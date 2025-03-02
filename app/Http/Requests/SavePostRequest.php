@@ -30,7 +30,7 @@ class SavePostRequest extends FormRequest
             'title'=> ['required', 'min:4'],
             'body'=> ['required'],
             'details'=> ['required', 'min:6'],
-            'imagen'=>['required'],
+            'imagen'=>['required','image','mimes:jpeg,png,jpg'],
             'expiracion'=> ['required'],
         ];
     }
