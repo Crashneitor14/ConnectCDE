@@ -56,7 +56,7 @@
                             {{--Imagen--}}
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                             @if ($vote->imagen)
-                                <a href="{{ asset($vote->imagen) }}">Ver imagen</a>
+                                <a href="{{ asset($vote->imagen) }}" target="_blank">Ver imagen</a>
                             @else
                                 <p>No Imagen</p>
                             @endif
