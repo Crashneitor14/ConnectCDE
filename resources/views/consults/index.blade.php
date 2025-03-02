@@ -1,6 +1,6 @@
 <x-layouts.app
-    title="Contacto"
-    meta-description="Contact meta description"
+    title="Consultas"
+    meta-description="Consultas meta description"
 >
 <h1 class="my-4 font-serif text-3xl text-center text-sky-600 dark:text-sky-500">Consultas CEE</h1>
 <header class="px-6 py-4 space-y-2 text-center" {{--Especificar solo para estudiantes--}}>
@@ -39,7 +39,7 @@
                                     </td>
 
 
-                                    <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
+                                    <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                         {{$consult->Correo_est}}
 
                                     <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">

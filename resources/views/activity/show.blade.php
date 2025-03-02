@@ -2,7 +2,7 @@
     :title="$activity->name"
     :meta-description="$activity->name"
 >
-    <div class="max-w-xl w-50 space-y-4 bg-grey rounded shadow bg-slate-280 m-auto grid w-full gap-8  sm:grid-cols-1 md:grid-cols-1max-w-xl px-8 py-4 mx-auto bg-slate-300">
+<div class="max-w-xl w-50 space-y-4 bg-grey rounded shadow bg-slate-280 m-auto grid w-full gap-8 px-8 py-4 mx-auto bg-slate-300">
     <label class="flex flex-col">
         <span class="flex justify-center font-serif text-slate-600">Nombre Actividad</span>
         <input class="rounded-md shadow-sm border-slate-250 focus:ring-slate-300 focus:ring-opacity-50 focus:border-slate-300" name="name" type="text" value="{{ old('name', $activity->name) }}">
@@ -24,14 +24,13 @@
     <label class="flex flex-col">
         <div class="flex items-center flex-1 sm:items-stretch sm:justify-start">
             <input class="rounded-md shadow-sm focus:ring-slate-300 focus:ring-opacity-50" name="name_rend" type="text" value="{{ old('name_rend', $activity->name_rend) }}">
-            <input type="number_format" name="monto" class="w-24 border border-gray-300 rounded px-3 py-2" value="{{ old('monto', $activity->monto) }}">
+            <input type="number_format" name="monto" class="mx-auto" value="${{ old('monto', $activity->monto) }}">
             <select name="tipo_rend" type="integer" id="tipo_rend" class="mx-auto" value="{{old('tipo_rend', $activity->tipo_rend)}}">
                 <option value="DDE">DDE</option>
                 <option value="Externo">Externo</option>
             </select>
         </div>
     </label>
-
 
     <label class="flex flex-col">
         <div class="mx-auto">
@@ -45,6 +44,15 @@
             <p>{{$activity->date_end->format('d/m/Y')}}</p>
         </div>
     </label>
+    <label class="flex flex-col">
+        <div class="mx-auto">
+            <a class="inline-flex items-center px-4 py-2 text-xs font-semibold tracking-widest text-center text-white uppercase ease-in-out border border-transparent rounded-md dark:text-sky-200 bg-sky-800"
+        href="#">Ingresar rendicion</a>
+        </div>
+    </label>
+
+
+
 
     <label class="flex flex-col">
         <span class="flex justify-center font-serif text-slate-600">Observaciones</span>
@@ -55,7 +63,7 @@
         @enderror
 
     </label>
-    <div class="flex justify-content: flex-end">
+    <div class="flex justify-content">
         <a class="inline-flex items-center px-4 py-2 text-xs font-semibold tracking-widest text-center text-white uppercase ease-in-out border border-transparent rounded-md dark:text-sky-200 bg-sky-800"
         href="{{route('act.index')}}">Volver a Actividades</a>
     </div>

@@ -81,7 +81,7 @@
                             {{--Imagen Rendicion--}}
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                 @if ($activities->imagen)
-                                    <a href="{{ asset($activities->imagen) }}">Ver imagen</a>
+                                    <a href="{{ asset($activities->imagen) }} " target="_blank">Ver imagen</a>
                                 @else
                                     <p>No hay Imagen</p>
                                 @endif

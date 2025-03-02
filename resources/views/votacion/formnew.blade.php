@@ -18,7 +18,7 @@
     {{--Votos revisar cuadro texto--}}
     <label class="flex flex-col">
         <span class="flex justify-center font-serif text-slate-600">Total Votos</span>
-        <input type="integer" name="total" class="w-24 border border-gray-300 rounded px-3 py-2"/>
+        <input type="integer" name="total" class="flex justify-center w-24 border border-gray-300 rounded px-3 py-2"/>
         @error('total')
             <small class="font-bold text-red-500/80">{{$message}}</small>
         @enderror

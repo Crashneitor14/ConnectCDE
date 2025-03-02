@@ -16,12 +16,12 @@
             </select>
         </label>
     </div>
-    <span class="flex justify-center font-serif text-slate-600">Rendiciones</span>
+    <span class="flex justify-center font-serif text-slate-600">Presupuesto</span>
     {{--seccion rendicion--}}
     <label class="flex flex-col">
         <div class="flex items-center flex-1 sm:items-stretch sm:justify-start">
             <input class="rounded-md shadow-sm focus:ring-slate-300 focus:ring-opacity-50" name="name_rend" type="text" placeholder="Nombre Rendicion">
-            <input type="number_format" name="monto" class="w-24 border border-gray-300 rounded px-3 py-2" placeholder="Monto total">
+            <input type="number_format" name="monto" class="rounded-md shadow-sm focus:ring-slate-300 focus:ring-opacity-50" placeholder=" Monto total">
             <select name="tipo_rend" id="tipo_rend" class="mx-auto">
                 <option value="DDE">DDE</option>
                 <option value="Externo">Externo</option>

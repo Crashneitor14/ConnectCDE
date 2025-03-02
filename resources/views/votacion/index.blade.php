@@ -1,6 +1,6 @@
 <x-layouts.app
-    title="Finanza"
-    meta-description="Finanza meta description"
+    title="Votaciones"
+    meta-description="Votaciones meta description"
 >
 <header class="px-6 py-4 space-y-2 text-center">
     <h1 class="my-4 font-serif text-3xl text-center text-sky-600 dark:text-sky-500"> Votaciones</h1>
