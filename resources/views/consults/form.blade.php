@@ -10,7 +10,7 @@
     </label>
     <div class="flex justify-center ">
         <label class="my-8" for="status">Estado:
-            <select name="status" id="status" class="mx-auto" value="{{ old('status', $consult->status) }}">
+            <select name="status" id="status" class="mx-auto" value="{{ old('status',$consult->status) }}">
                 <option value="En Revision">En Revision</option>
                 <option value="Respondido">Respondido</option>
             </select>

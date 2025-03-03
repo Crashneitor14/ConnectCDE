@@ -33,22 +33,21 @@ class ConsultController extends Controller
         $usuario = Auth::user();
         $newConsult->Correo_est = $usuario->email;
 
-        //enviar consulta al correo especifico (ver conflicto entre correos de CEE estudiantes y CEE unico)
-        //Mail::send();
-
-
-
-
         $newConsult -> save();
         return to_route('cons.create')->with('status','la consulta ha sido creada!');
 
     }
-    public function update(Consult $consult){ //almacenar  a la base de datos
+    public function update(Consult $consult,Request $request){ //almacenar  a la base de datos
+        //alternativa en caso de falla de request.php
+        $validar = $request->validate([
+            'name' =>['required'],
+            'status' =>['required'],
+            'message'   =>['required'],
+        ]);
+        $consult->update($validar);
 
-        $consult->update(); //filtra los datos aqui mismo
+        return to_route('cons.index',$consult)->with('status','la consulta ha sido actualizada!');
 
-        //return to_route('cons.index',$consult)->with('status','la consulta ha sido actualizada!');
-        return $consult -> all();
     }
 
     public function destroy(Consult $consult){

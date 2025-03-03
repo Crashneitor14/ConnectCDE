@@ -31,6 +31,7 @@ class FinanceController extends Controller
         $newActivity ->date_end = $request->date_end;
         $newActivity ->status = $request->status;
         //imagen rendicion
+
         if($request->hasFile('imagen')){
             $file = $request->file('imagen');
             $destinationPath = 'images/actividad/';

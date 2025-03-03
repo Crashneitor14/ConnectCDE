@@ -3,13 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\SavePostRequest;
-use Illuminate\Support\Facades\Storage;
 use App\Models\Post;
 use Carbon\Carbon;
-use App\Http\Controllers\File;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
@@ -35,18 +31,6 @@ public function create(){ // devolver el formulario para crear post
 }
 
 public function store(SavePostRequest $request){ // guardar el post en la base de datos
-
-
-    //$post = Post::create($request->validated()); //filtra los datos aqui mismo
-    //if ($request->hasFile('imagen')) {
-    //    $imagen = $request->file('imagen');
-    //    $nombreImagen = time() . '.' . $imagen->getClientOriginalExtension();
-    //    $imagen->storeAs('public/images', $nombreImagen); // Almacenar en 'storage/app/public/imagenes'
-    //
-    //  Post::create($request->validated());
-    //  return to_route('posts.index')->with('status','El post ha sido creado!');
-    //}
-
     $newPost = new Post();
     //datos post
     $newPost->title = $request->title;
@@ -76,7 +60,7 @@ public function store(SavePostRequest $request){ // guardar el post en la base d
 
 
     $newPost->save();   //guarda los datos del newpost
-    //return $request -> all();
+
 
 
     return to_route('posts.index')->with('status','El post ha sido creado!');
@@ -106,7 +90,7 @@ public function update(SavePostRequest $request, Post $post){ //almacenar los ca
 
 
 
-    //return $request -> all();
+
 
     return to_route('posts.show',$post)->with('status','El post ha sido actualizado!');
 
