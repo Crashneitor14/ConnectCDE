@@ -74,19 +74,27 @@ public function edit(Post $post){ // formulario de editar el post
 }
 
 public function update(SavePostRequest $request, Post $post){ //almacenar los cambios del post a la base de datos
-    if ($request->hasFile('imagen')) {
-        // Eliminar imagen anterior si existe
-        $imagePath = $post->imagen;
-        unlink(public_path($imagePath));
 
-        // Subir nueva imagen y guardar la ruta
-        $file = $request->file('imagen');
-        $destinationPath = 'images/imagenes/';
-        $filename = time() . '-' . $file->getClientOriginalName();
-        $uploadSuccess = $request->file('imagen')->move($destinationPath,$filename);
-        $post->imagen = $destinationPath . $filename;
+    if ($request->hasFile('imagen')) {
+        //elimina la imagen anterior del post
+        if($post->imagen){
+            $oldimagen = public_path($post->imagen);
+            if (file_exists($oldimagen)) {
+                unlink($oldimagen);
+            }
+
+        }
+        //proceso para implementar la imagen
+        $imagen = $request->imagen;
+        $newNombre = rand() . '-' . $imagen->getClientOriginalName();
+        $imagen ->move(public_path('images/imagenes'),$newNombre);
+        $path = 'images/imagenes/'.$newNombre;
+        $post->imagen = $path;
+
     }
-    $post->update($request->validated()); //filtra los datos aqui mismo
+
+
+    $post->update($request->validated());
 
 
 
