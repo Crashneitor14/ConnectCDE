@@ -25,6 +25,12 @@ class ConsultController extends Controller
     public function store(Request $request)
     {
         $newConsult = new Consult();
+        $validar = $request->validate([
+            'name' =>['required','min:6'],
+            'status' =>['required'],
+            'message'   =>['required','min:6'],
+        ]);
+
         $newConsult -> name = $request->name;
         $newConsult -> status = $request->status;
         $newConsult -> message = $request->message;
@@ -33,7 +39,7 @@ class ConsultController extends Controller
         $usuario = Auth::user();
         $newConsult->Correo_est = $usuario->email;
 
-        $newConsult -> save();
+        $newConsult -> save($validar);
         return to_route('cons.create')->with('status','la consulta ha sido creada!');
 
     }

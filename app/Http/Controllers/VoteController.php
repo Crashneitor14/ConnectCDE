@@ -18,7 +18,7 @@ class VoteController extends Controller
         return view('votacion.create',['vote' => new Vote()]);
 
     }
-    public function store(Request $request){
+    public function store(SaveVoteRequest $request){
         $newVote = new Vote();
         $newVote ->name = $request->name;
         $newVote ->detalle = $request->detalle;
