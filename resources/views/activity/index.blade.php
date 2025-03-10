@@ -34,7 +34,7 @@
                     </thead>
                     @foreach ($activities as $activities)
                         @if($activities->carrera_user === auth()->user()->carrera)
-                    <tbody class="bg-white">
+                        <tbody class="bg-white">
                         <tr>
                             {{--Nombre Actividad--}}
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">

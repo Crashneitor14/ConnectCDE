@@ -4,10 +4,10 @@
 >
 <h1 class="my-4 font-serif text-3xl text-center text-sky-600 dark:text-sky-500">Consultas CEE</h1>
 <header class="px-6 py-4 space-y-2 text-center" {{--Especificar solo para estudiantes--}}>
-    @auth
+
     <a class="inline-flex items-center px-4 py-2 text-xs font-semibold tracking-widest text-center text-white uppercase ease-in-out border border-transparent rounded-md dark:text-sky-200 bg-sky-800"
         href="{{route('cons.create')}}">Generar una consulta</a>
-    @endauth
+
 </header>
 <div class="flex justify-center mt-8">
 
@@ -21,7 +21,10 @@
                         <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Correo Estudiante</th>
                         <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Fecha Enviado</th>
                         <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"></th>
+                        @auth
                         <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"></th>
+                        @endauth
+
                     </tr>
                 </thead>
                 @foreach ($consult as $consult)
@@ -50,7 +53,7 @@
                                         <a class="text-indigo-600 hover:text-indigo-900" href="{{route('cons.edit',$consult)}}">Ver Consulta</a>
                                     </td>
 
-
+                                    @auth
                                     <form action="{{route('cons.destroy',$consult)}}" method="POST">
                                         @csrf
                                     @method('DELETE')
@@ -58,6 +61,8 @@
                                         <button class="text-red-600 hover:text-indigo-900">Eliminar</button>
                                     </td>
                                     </form>
+                                    @endauth
+
                                 </tr>
                             </tbody>
 

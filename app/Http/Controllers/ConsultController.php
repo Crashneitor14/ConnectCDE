@@ -36,8 +36,12 @@ class ConsultController extends Controller
         $newConsult -> message = $request->message;
 
         //sacar info de usuario que subio
-        $usuario = Auth::user();
-        $newConsult->Correo_est = $usuario->email;
+        //$correo_user = Auth::user()->email;
+        if (Auth::check() && Auth::user()->email) {
+            $newConsult->Correo_est = Auth::user()->email;
+        } else {
+            $newConsult->Correo_est = 'Correo del Estudiante';
+        }
 
         $newConsult -> save($validar);
         return to_route('cons.create')->with('status','la consulta ha sido creada!');

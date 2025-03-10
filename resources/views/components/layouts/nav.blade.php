@@ -1,13 +1,4 @@
-{{--<nav>
-<ul>
-    <li><a href="{{ route('menu')}}">Index</a></li>
-    <li><a href="{{ route('plata')}}">finanza</a></li>
-    <li><a href="{{ route('posts.index')}}">publicaciones</a></li>
-    <li><a href="{{ route('contact')}}">contacto</a></li>
-</ul>
-</nav>
-NAVEGADOR
---}}
+{{--    NAVEGADOR   --}}
 <nav
     class="mx-auto w-screen bg-white border-b white:bg-slate-900 border-slate-900/10 lg:px-8 white:border-slate-300/10 lg:mx-0">
     <div class="px-4 mx-auto max-w-7xl sm:px-16 lg:px-20">
@@ -37,11 +28,11 @@ NAVEGADOR
                             class="px-3 py-2 text-sm font-medium rounded-md hover:text-sky-600 dark:hover:text-dark {{ request()->routeIs('votacion.*') ? 'text-sky-600 ' : 'text-slate-250'}}">
                             Votaciones
                         </a>
+                    @endauth
                         <a href="{{ route('cons.index')}}"
                             class="px-3 py-2 text-sm font-medium rounded-md hover:text-sky-600 dark:hover:text-dark {{ request()->routeIs('consult') ? 'text-sky-600 ' : 'text-slate-250'}}">
                             Consultas
                         </a>
-                    @endauth
                         <a href="{{ route('contact')}}"
                             class="px-3 py-2 text-sm font-medium rounded-md hover:text-sky-600 dark:hover:text-dark {{ request()->routeIs('contact') ? 'text-sky-600 ' : 'text-slate-250'}}">
                             Contacto

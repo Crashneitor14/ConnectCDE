@@ -56,10 +56,10 @@ Route::View('/pruebax', 'test')->name('test');
 
 
 //consulta
-Route::get('/consultas', [ConsultController::class, 'index'])-> name('cons.index')->middleware('auth');
+Route::get('/consultas', [ConsultController::class, 'index'])-> name('cons.index');
 Route::get('/consultas/crear', [ConsultController::class, 'create'])-> name('cons.create');
-Route::post('/consultas', [ConsultController::class, 'store'])->name('cons.store')->middleware('auth');
-Route::get('/consultas/{consult}/editar', [ConsultController::class, 'edit'])->name('cons.edit')->middleware('auth');
+Route::post('/consultas', [ConsultController::class, 'store'])->name('cons.store');
+Route::get('/consultas/{consult}/editar', [ConsultController::class, 'edit'])->name('cons.edit');
 Route::patch('/consultas/{consult}',[ConsultController::class, 'update'])->name('cons.update')->middleware('auth');
 Route::delete('/consultas/{consult}',[ConsultController::class, 'destroy'])->name('cons.destroy')->middleware('auth');
 
