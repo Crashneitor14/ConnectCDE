@@ -26,12 +26,15 @@ class FinanceController extends Controller
     public function store(Request $request){
         $newActivity = new Activity();
         $newActivity ->name = $request->name;
+        $newActivity ->status = $request->status;
+        //rendiciones
+        $newActivity ->name_rend = $request->name_rend;
+        $newActivity ->tipo_rend = $request->tipo_rend;
+        $newActivity ->monto = $request->monto;
         $newActivity ->observation = $request->observation;
         $newActivity ->date_start = $request->date_start;
         $newActivity ->date_end = $request->date_end;
-        $newActivity ->status = $request->status;
         //imagen rendicion
-
         if($request->hasFile('imagen')){
             $file = $request->file('imagen');
             $destinationPath = 'images/actividad/';
@@ -39,11 +42,6 @@ class FinanceController extends Controller
             $uploadSuccess = $request->file('imagen')->move($destinationPath,$filename);
             $newActivity->imagen = $destinationPath . $filename;
         };
-        //rendiciones
-        $newActivity ->name_rend = $request->name_rend;
-        $newActivity ->tipo_rend = $request->tipo_rend;
-        $newActivity ->monto = $request->monto;
-
         //sacar info de usuario que subio
         $usuario = Auth::user();
         $newActivity->user_charge = $usuario->name;
@@ -56,6 +54,30 @@ class FinanceController extends Controller
 
 
     }
+    public function edit(Activity $activities){ // formulario de editar el post
+
+
+        return view('activity.edit', ['activity' => $activities]);
+
+    }
+    public function update(Activity $activity,Request $request){ //almacenar a la base de datos
+        //alternativa en caso de falla de request.php
+
+        $validar = $request->validate([
+            'name' =>['required'],
+            'status' =>['required'],
+            'name_rend'   =>['required'],
+            'monto'   =>['required','numeric'],
+            'observation'   =>['required'],
+        ]);
+
+        $activity->update($validar);
+
+        return to_route('act.index',$activity)->with('status','Actividad actualizada!');
+
+    }
+
+
     public function destroy(Activity $activities){
         $imagePath = $activities->imagen;
         $activities->delete();

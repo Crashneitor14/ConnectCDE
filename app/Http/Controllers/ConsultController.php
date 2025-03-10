@@ -44,7 +44,7 @@ class ConsultController extends Controller
         }
 
         $newConsult -> save($validar);
-        return to_route('cons.create')->with('status','la consulta ha sido creada!');
+        return to_route('cons.create')->with('status','La consulta ha sido creada!');
 
     }
     public function update(Consult $consult,Request $request){ //almacenar  a la base de datos
@@ -56,13 +56,13 @@ class ConsultController extends Controller
         ]);
         $consult->update($validar);
 
-        return to_route('cons.index',$consult)->with('status','la consulta ha sido actualizada!');
+        return to_route('cons.index',$consult)->with('status','Consulta actualizada!');
 
     }
 
     public function destroy(Consult $consult){
         $consult->delete();
-        return to_route('cons.index')->with('status','La consulta ha sido eliminada!');
+        return to_route('cons.index')->with('status','Consulta eliminada!');
     }
 
 

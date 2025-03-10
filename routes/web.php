@@ -33,6 +33,7 @@ Route::resource('publicacion', PostController::class,[
     'parameters' => ['publicacion' => 'post']
 
 ]);
+
 //prueba para like y dislike(?
 Route::post('/publicacion/{post}/like', [LikeController::class, 'like'])->middleware('auth')->name('posts.like');
 Route::post('/publicacion/{post}/dislike', [LikeController::class, 'dislike'])->middleware('auth')->name('posts.dislike');
@@ -41,8 +42,10 @@ Route::post('/publicacion/{post}/dislike', [LikeController::class, 'dislike'])->
 Route::get('/finanzas', [FinanceController::class, 'index'])->name('act.index')->middleware('auth');
 Route::get('/finanzas/crear', [FinanceController::class, 'create'])->name('act.create')->middleware('auth');
 Route::post('/finanzas', [FinanceController::class, 'store'])->name('act.store')->middleware('auth');
-Route::get('/finanzas/{activities}', [FinanceController::class, 'show'])->name('act.show')->middleware('auth');
-Route::delete('/finanzas/{activities}',[FinanceController::class, 'destroy'])->name('act.destroy')->middleware('auth');
+Route::get('/finanzas/{activities}/editar', [FinanceController::class, 'edit'])->name('act.edit')->middleware('auth');
+Route::patch('/finanzas/{activity}', [FinanceController::class, 'update'])->name('act.update')->middleware('auth');
+Route::delete('/finanzas/{activity}',[FinanceController::class, 'destroy'])->name('act.destroy')->middleware('auth');
+
 //sector votacion
 Route::get('/votacion',[VoteController::class,'index'])->name('vot.index')->middleware('auth');
 Route::get('/votacion/crear',[VoteController::class,'create'])->name('vot.create')->middleware('auth');
