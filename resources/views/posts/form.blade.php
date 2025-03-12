@@ -22,11 +22,6 @@
 <label class="flex flex-col ">
     <span class="flex justify-center font-serif text-slate-600">Imagen</span>
     <img src="{{ asset($post->imagen) }}" class="mx-auto" width="300 px">
-    <input class="mx-auto" type="file" name="imagen" accept="image/*">
-
-    @error('imagen')
-    <small class="font-bold text-red-500/80">{{$message}}</small>
-    @enderror
 
 </label>
 <label class="flex flex-col">
@@ -34,7 +29,7 @@
         <label class="my-8" for="expiracion">Fecha Termino:</label>
         <input type="datetime-local" name="expiracion" id="expiracion" value="{{ old('expiracion', date('Y-m-d\TH:i:s')) }}">
     </div>
-    @error('expiracion') {{--detector de errores--}}
+    @error('expiracion')
     <small class="font-bold text-red-500/80">{{$message}}</small>
     @enderror
 </label>

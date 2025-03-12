@@ -75,23 +75,21 @@ public function edit(Post $post){ // formulario de editar el post
 
 public function update(SavePostRequest $request, Post $post){ //almacenar los cambios del post a la base de datos
 
-    if ($request->hasFile('imagen')) {
+  //  if ($request->hasFile('imagen')) {
         //elimina la imagen anterior del post
-        if($post->imagen){
-            $oldimagen = public_path($post->imagen);
-            if (file_exists($oldimagen)) {
-                unlink($oldimagen);
-            }
-
-        }
+    //    if($post->imagen){
+    //        $oldimagen = public_path($post->imagen);
+       //     if (file_exists($oldimagen)) {
+      //          unlink($oldimagen);
+       //     }
+       // }
         //proceso para implementar la imagen
-        $imagen = $request->imagen;
-        $newNombre = rand() . '-' . $imagen->getClientOriginalName();
-        $imagen ->move(public_path('images/imagenes'),$newNombre);
-        $path = 'images/imagenes/'.$newNombre;
-        $post->imagen = $path;
-
-    }
+        //$imagen = $request->imagen;
+        //$newNombre = rand() . '-' . $imagen->getClientOriginalName();
+        //$imagen ->move(public_path('images/imagenes'),$newNombre);
+        //$path = 'images/imagenes/'.$newNombre;
+        //$post->imagen = $path;
+    //}
 
 
     $post->update($request->validated());
@@ -105,13 +103,19 @@ public function update(SavePostRequest $request, Post $post){ //almacenar los ca
 }
 
 public function destroy(Post $post){ //destruir el post en la base de datos
+    $verPost = Post::count();
 
+    if ($verPost <= 1) {
+        return to_route('posts.index')->with('status','No se puede borrar el ultimo post');
 
-    $imagePath = $post->imagen;
-    $post->delete();
-    if ($imagePath && file_exists(public_path($imagePath))) {
-        unlink(public_path($imagePath));
+    }else{
+        $imagePath = $post->imagen;
+            $post->delete();
+            if ($imagePath && file_exists(public_path($imagePath))) {
+                unlink(public_path($imagePath));
+            }
     }
+
 
     return to_route('posts.index')->with('status','El post ha sido eliminado!');
 }
