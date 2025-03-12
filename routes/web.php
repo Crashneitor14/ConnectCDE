@@ -10,13 +10,6 @@ use App\Http\Controllers\CeeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 
-// /index
-// /contact
-// /publicaciones
-// /acerca
-
-
-
 Route::view('/', 'welcome')->name('menu');
 
 //Route::get('/publicacion', [PostController::class, 'index'])->name('posts.index');

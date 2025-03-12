@@ -3,7 +3,7 @@
         <span class="flex justify-center font-serif text-slate-600">Nombre Actividad</span>
         <input class="rounded-md shadow-sm border-slate-250 focus:ring-slate-300 focus:ring-opacity-50 focus:border-slate-300" name="name" type="text">
 
-        @error('title')
+        @error('name')
             <small class="font-bold text-red-500/80">{{$message}}</small>
         @enderror
     </label>
@@ -27,6 +27,12 @@
                 <option value="Externo">Externo</option>
             </select>
         </div>
+        @error('name_rend') {{--detector de errores--}}
+            <small class="font-bold text-red-500/80">{{$message}}</small>
+            @enderror
+        @error('monto') {{--detector de errores--}}
+        <small class="font-bold text-red-500/80">{{$message}}</small>
+        @enderror
     </label>
     {{--imagen rendicion--}}
     <label class="flex flex-col">
@@ -43,13 +49,18 @@
             <label class="my-8" for="date_start">Fecha Inicio:</label>
             <input type="date" name="date_start">
         </div>
-
+        @error('date_start') {{--detector de errores--}}
+        <small class="font-bold text-red-500/80">{{$message}}</small>
+        @enderror
     </label>
     <label class="flex flex-col">
         <div class="mx-auto">
             <label class="my-8" for="date_end">Fecha Termino:</label>
             <input type="date" name="date_end">
         </div>
+        @error('date_end') {{--detector de errores--}}
+        <small class="font-bold text-red-500/80">{{$message}}</small>
+        @enderror
     </label>
     <label class="flex flex-col">
         <span class="flex justify-center font-serif text-slate-600">Observaciones</span>

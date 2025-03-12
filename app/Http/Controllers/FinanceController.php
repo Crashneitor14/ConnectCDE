@@ -25,6 +25,17 @@ class FinanceController extends Controller
     }
     public function store(Request $request){
         $newActivity = new Activity();
+
+        $validar = $request->validate([
+            'name' =>['required','min:6'],
+            'status' =>['required'],
+            'name_rend'   =>['required'],
+            'monto'   =>['required','numeric'],
+            'tipo_rend'   =>['required'],
+            'imagen'   =>['required','mimes:jpeg,png,jpg,pdf,doc,docx','max:16384'],
+            'date_start'   =>['required'],
+            'date_end'   =>['required'],
+        ]);
         $newActivity ->name = $request->name;
         $newActivity ->status = $request->status;
         //rendiciones
@@ -47,7 +58,7 @@ class FinanceController extends Controller
         $newActivity->user_charge = $usuario->name;
         $newActivity->carrera_user = $usuario->carrera;
 
-        $newActivity ->save();
+        $newActivity ->save($validar);
         return to_route('act.index')->with('status','la actividad se ha creado!');
 
         //dd($request -> all()); ver lo que imprime el formulario

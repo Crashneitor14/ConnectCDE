@@ -12,7 +12,7 @@ return [
     | as the size rules. Feel free to tweak each of these messages here.
     |
     */
-
+    'date_end.required' => 'El campo Fecha de finalización es requerido.',
     'accepted'             => 'El campo :attribute debe ser aceptado.',
     'active_url'           => 'El campo :attribute no es una URL válida.',
     'after'                => 'El campo :attribute debe ser una fecha posterior a :date.',
@@ -146,6 +146,18 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+            'date_end' => 'Fecha Termino',
+            'date_start' => 'Fecha Inicio',
+            'name' => 'Nombre',
+            'body' => 'Cuerpo',
+            'title' => 'Titulo',
+            'details' => 'Detalles',
+            'imagen' => 'Imagen',
+            'expiracion' => 'Expiracion',
+
+
+
+    ],
 
 ];
