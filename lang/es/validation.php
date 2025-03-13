@@ -155,6 +155,7 @@ return [
             'details' => 'Detalles',
             'imagen' => 'Imagen',
             'expiracion' => 'Expiracion',
+            'message' => 'Mensaje',
 
 
 

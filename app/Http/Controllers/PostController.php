@@ -91,12 +91,7 @@ public function update(SavePostRequest $request, Post $post){ //almacenar los ca
         //$post->imagen = $path;
     //}
 
-
     $post->update($request->validated());
-
-
-
-
 
     return to_route('posts.show',$post)->with('status','El post ha sido actualizado!');
 
