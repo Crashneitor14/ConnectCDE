@@ -158,7 +158,7 @@ return [
             'message' => 'Mensaje',
             'name_rend' => 'Nombre/Ítem',
             'monto' => 'Monto Total',
-
+            'detalle' => 'Detalles',
 
 
     ],

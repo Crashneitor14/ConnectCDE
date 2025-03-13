@@ -3,10 +3,12 @@
     meta-description="Consultas meta description"
 >
 <h1 class="my-4 font-serif text-3xl text-center text-sky-600 dark:text-sky-500">Consultas CEE</h1>
-<header class="px-6 py-4 space-y-2 text-center" {{--Especificar solo para estudiantes--}}>
-
-    <a class="inline-flex items-center px-4 py-2 text-xs font-semibold tracking-widest text-center text-white uppercase ease-in-out border border-transparent rounded-md dark:text-sky-200 bg-sky-800"
+<header class="px-6 py-4 space-y-2 text-center">
+    @guest
+     <a class="inline-flex items-center px-4 py-2 text-xs font-semibold tracking-widest text-center text-white uppercase ease-in-out border border-transparent rounded-md dark:text-sky-200 bg-sky-800"
         href="{{route('cons.create')}}">Generar una consulta</a>
+    @endguest
+
 
 </header>
 <div class="flex justify-center mt-8">

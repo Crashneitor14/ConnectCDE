@@ -57,12 +57,18 @@ class VoteController extends Controller
 
     }
     public function destroy(Vote $vote){ //destruir el post en la base de datos
-        $imagendelete = $vote->imagen;
-        $vote->delete();
-        if ($imagendelete && file_exists(public_path($imagendelete))) {
-            unlink(public_path($imagendelete));
-        }
+        $verVote = Vote::count();
 
+        if ($verVote <= 1) {
+            return to_route('vot.index')->with('status','No se puede eliminar el unico registro de votacion');
+
+        }else{
+            $imagendelete = $vote->imagen;
+            $vote->delete();
+            if ($imagendelete && file_exists(public_path($imagendelete))) {
+                unlink(public_path($imagendelete));
+        }
+        }
         return to_route('vot.index')->with('status','El registro ha sido eliminado!');
     }
 
