@@ -156,6 +156,8 @@ return [
             'imagen' => 'Imagen',
             'expiracion' => 'Expiracion',
             'message' => 'Mensaje',
+            'name_rend' => 'Nombre/Ítem',
+            'monto' => 'Monto Total',
 
 
 

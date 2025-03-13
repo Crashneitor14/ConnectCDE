@@ -32,9 +32,9 @@ class FinanceController extends Controller
             'name_rend'   =>['required'],
             'monto'   =>['required','numeric'],
             'tipo_rend'   =>['required'],
-            'imagen'   =>['required','mimes:jpeg,png,jpg,pdf,doc,docx','max:16384'],
+            'imagen'   =>['mimes:jpeg,png,jpg,pdf,doc,docx','max:16384'],
             'date_start'   =>['required'],
-            'date_end'   =>['required'],
+            'date_end'   =>['required','after_or_equal:date_start'],
         ]);
         $newActivity ->name = $request->name;
         $newActivity ->status = $request->status;
@@ -75,11 +75,11 @@ class FinanceController extends Controller
         //alternativa en caso de falla de request.php
 
         $validar = $request->validate([
-            'name' =>['required'],
+            'name' =>['required','max:50'],
             'status' =>['required'],
-            'name_rend'   =>['required'],
-            'monto'   =>['required','numeric'],
-            'observation'   =>['required'],
+            'name_rend'   =>['required','max:30'],
+            'monto'   =>['required','numeric','max:9000000'],
+            'observation'   =>[''],
         ]);
 
         $activity->update($validar);
@@ -89,13 +89,20 @@ class FinanceController extends Controller
     }
 
 
-    public function destroy(Activity $activities){
-        $imagePath = $activities->imagen;
-        $activities->delete();
+    public function destroy(Activity $activity){
+        $verAct = Activity::count();
+
+
+        if ($verAct <= 1) {
+            return to_route('act.index')->with('status','No se puede borrar la ultima actividad');
+
+        }else{
+        $imagePath = $activity->imagen;
+        $activity->delete();
         if ($imagePath && file_exists(public_path($imagePath))) {
             unlink(public_path($imagePath));
         }
-
+        }
         return to_route('act.index')->with('status','La actividad se ha eliminado!');
 
     }

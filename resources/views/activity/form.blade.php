@@ -28,7 +28,7 @@
     <label class="flex flex-col">
         <span class="flex justify-center font-serif text-slate-600">Monto Total Actividad</span>
         <input type="number_format" name="monto" class="mx-auto " value="{{ old('monto', $activity->monto) }}">
-        @error('name')
+        @error('monto')
             <small class="font-bold text-red-500/80">{{$message}}</small>
         @enderror
     </label>
@@ -68,10 +68,6 @@
     <label class="flex flex-col">
         <span class="flex justify-center font-serif text-slate-600">Observaciones</span>
         <textarea class="rounded-md shadow-sm border-slate-250 focus:ring-slate-300 focus:ring-opacity-50 focus:border-slate-300" name="observation" rows="3">{{ old('observation',$activity->observation) }}</textarea>
-
-        @error('observation') {{--detector de errores--}}
-        <small class="font-bold text-red-500/80">{{$message}}</small>
-        @enderror
 
     </label>
 </div>
