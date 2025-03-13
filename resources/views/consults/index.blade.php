@@ -9,6 +9,11 @@
         href="{{route('cons.create')}}">Generar una consulta</a>
     @endguest
 
+    @auth
+    <a class="inline-flex items-center px-4 py-2 text-xs font-semibold tracking-widest text-center text-white uppercase ease-in-out border border-transparent rounded-md dark:text-sky-200 bg-sky-800"
+    href="{{route('cons.create')}}">Generar una consulta (CEE)</a>
+    @endauth
+
 
 </header>
 <div class="flex justify-center mt-8">

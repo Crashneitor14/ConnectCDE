@@ -7,17 +7,6 @@
             <small class="font-bold text-red-500/80">{{$message}}</small>
         @enderror
     </label>
-    @auth
-        <div class="flex justify-center ">
-            <label class="my-8" for="status">Estado:
-                <select name="status" id="status" class="mx-auto">
-                    <option value="En Revision">En Revision</option>
-                    <option value="Respondido">Respondido</option>
-                </select>
-            </label>
-        </div>
-    @endauth
-
 
     <label class="flex flex-col">
         <span class="flex justify-center font-serif text-slate-600">Mensaje</span>
