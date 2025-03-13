@@ -14,7 +14,10 @@ class Post extends Model
         return $this->belongsToMany(User::class,'post_like')->withTimestamps();
     }
 
-
+    public function Post()
+    {
+        return $this->belongsTo(Cee::class);
+    }
 
 
 

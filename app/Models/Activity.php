@@ -16,8 +16,10 @@ class Activity extends Model
         'date_start' => 'date',
         'date_end' => 'date',
     ];
-    public function Report()
+    public function Activity()
     {
-        return $this->hasMany(Report::class);
+        return $this->belongsTo(Cee::class);
     }
+
+
 }

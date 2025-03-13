@@ -27,19 +27,16 @@
     </label>
     <label class="flex flex-col">
         <span class="flex justify-center font-serif text-slate-600">Monto Total Actividad</span>
-        <input type="number_format" name="monto" class="mx-auto " value="{{ old('monto', $activity->monto) }}">
+        <input type="number_format" name="monto" class="mx-auto w-24 border border-gray-300 rounded px-3 py-2" value="{{ old('monto', $activity->monto) }}">
         @error('monto')
             <small class="font-bold text-red-500/80">{{$message}}</small>
         @enderror
     </label>
 
     <label class="flex flex-col">
-        <span class="flex justify-center font-serif text-slate-600">Tipo Rendicion</span>
-        <div class="flex items-center flex-1 sm:items-stretch sm:justify-start">
-            <select name="tipo_rend" type="integer" id="tipo_rend" class="mx-auto" value="{{old('tipo_rend', $activity->tipo_rend)}}">
-                <option value="DDE">DDE</option>
-                <option value="Externo">Externo</option>
-            </select>
+        <div class="mx-auto">
+            <span class="flex justify-center font-serif text-slate-600">Tipo Rendicion:</span>
+                <p>{{$activity->tipo_rend}}</p>
         </div>
     </label>
 
@@ -54,14 +51,6 @@
         <div class="mx-auto">
             <label class="my-8" for="date_end">Fecha Termino:</label>
             <p>{{$activity->date_end->format('d/m/Y')}}</p>
-        </div>
-    </label>
-
-
-    <label class="flex flex-col">
-        <div class="mx-auto">
-            <a class="inline-flex items-center px-4 py-2 text-xs font-semibold tracking-widest text-center text-white uppercase ease-in-out border border-transparent rounded-md dark:text-sky-200 bg-sky-800"
-        href="#">Ingresar rendicion</a>
         </div>
     </label>
 

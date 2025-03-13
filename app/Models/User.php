@@ -52,8 +52,14 @@ class User extends Authenticatable
 
     public function Votes()
     {
-        return $this->hasMany(Vote::class);
+        return $this->hasMany(Cee::class);
     }
+
+    public function Consult()
+    {
+        return $this->hasMany(Consult::class);
+    }
+
 
 
 }

@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Consult extends Model
 {
     use HasFactory;
+
+
+    public function Consult()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+
 }

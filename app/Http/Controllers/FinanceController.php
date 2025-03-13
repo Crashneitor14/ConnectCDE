@@ -84,7 +84,7 @@ class FinanceController extends Controller
 
         $activity->update($validar);
 
-        return to_route('act.index',$activity)->with('status','Actividad actualizada!');
+        return to_route('act.index')->with('status','Actividad actualizada!');
 
     }
 

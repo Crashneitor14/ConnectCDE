@@ -11,7 +11,7 @@ class Vote extends Model
 
     public function Votes()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Cee::class);
     }
 
 
