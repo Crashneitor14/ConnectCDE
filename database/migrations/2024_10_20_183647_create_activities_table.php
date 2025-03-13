@@ -15,12 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->enum('status',['En Proceso', 'Terminado']);
-            //rendiciones
             $table->string('name_rend');
             $table->integer('monto')->nullable();
             $table->enum('tipo_rend',['DDE', 'Externo']);
             $table->string('imagen')->nullable();
-            //
             $table->timestamp('date_start')->nullable();
             $table->timestamp('date_end')->nullable();
             $table->longText('observation');
