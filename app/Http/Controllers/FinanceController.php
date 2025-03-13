@@ -78,7 +78,7 @@ class FinanceController extends Controller
             'name' =>['required','max:50'],
             'status' =>['required'],
             'name_rend'   =>['required','max:30'],
-            'monto'   =>['required','numeric','max:9000000'],
+            'monto'   =>['required','numeric','min:1','max:9000000'],
             'observation'   =>[''],
         ]);
 

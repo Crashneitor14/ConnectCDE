@@ -29,7 +29,7 @@ class SaveVoteRequest extends FormRequest
             //
             'name'=> ['required', 'min:4'],
             'detalle'=> ['required'],
-            'total'=> ['required', 'numeric','max: 999'],
+            'total'=> ['required', 'numeric','min: 1','max: 999'],
 
         ];
     }
