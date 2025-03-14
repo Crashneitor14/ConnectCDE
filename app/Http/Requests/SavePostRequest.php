@@ -27,9 +27,10 @@ class SavePostRequest extends FormRequest
         }
         return [
             //
-            'title'=> ['required', 'min:4'],
+            'title'=> ['required', 'min:4','max:30'],
             'body'=> ['required'],
-            'details'=> ['required', 'min:6'],
+            'details'=> ['required', 'min:6','max:35'],
+            'imagen'=> ['required','mimes:jpeg,png,jpg'],
             'expiracion'=> ['required','after_or_equal:today'],
         ];
     }

@@ -27,8 +27,9 @@ class SaveVoteRequest extends FormRequest
         }
         return [
             //
-            'name'=> ['required', 'min:4'],
+            'name'=> ['required', 'min:4','max:20'],
             'detalle'=> ['required'],
+            'imagen'=> ['mimes:jpeg,png,jpg,pdf,doc,docx'],
             'total'=> ['required', 'numeric','min: 1','max: 999'],
 
         ];

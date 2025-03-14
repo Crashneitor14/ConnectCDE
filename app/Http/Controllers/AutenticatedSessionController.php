@@ -31,6 +31,10 @@ class AutenticatedSessionController extends Controller
         return redirect()->intended()->with('status','Bienvenido a ConnectCDE');
 
     }
+    public function show(Request $request)
+    {
+        return response()->json($request->user());
+    }
     public function destroy(Request $request){
 
         Auth::logout();

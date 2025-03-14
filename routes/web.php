@@ -27,7 +27,7 @@ Route::resource('publicacion', PostController::class,[
 
 ]);
 
-//prueba para like y dislike(?
+//prueba para like y dislike
 Route::post('/publicacion/{post}/like', [LikeController::class, 'like'])->middleware('auth')->name('posts.like');
 Route::post('/publicacion/{post}/dislike', [LikeController::class, 'dislike'])->middleware('auth')->name('posts.dislike');
 
@@ -46,10 +46,6 @@ Route::post('/votacion',[VoteController::class,'store'])->name('vot.store')->mid
 Route::get('/votacion/{vote}/editar', [VoteController::class, 'edit'])->name('vot.edit')->middleware('auth');
 Route::patch('/votacion/{vote}',[VoteController::class, 'update'])->name('vot.update')->middleware('auth');
 Route::delete('/votacion/{vote}',[VoteController::class, 'destroy'])->name('vot.destroy')->middleware('auth');
-
-//rutas aun no terminadas
-Route::View('/pruebax', 'test')->name('test');
-
 
 //consulta
 Route::get('/consultas', [ConsultController::class, 'index'])-> name('cons.index');

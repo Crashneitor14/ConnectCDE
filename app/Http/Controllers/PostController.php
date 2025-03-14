@@ -6,6 +6,7 @@ use App\Http\Requests\SavePostRequest;
 use App\Models\Post;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\JsonResponse;
 
 class PostController extends Controller
 {
@@ -22,7 +23,18 @@ public function index(){ //mostrar listado de posts
 }
 
 public function show(Post $post){   //mostrar el detalle de un post
-        return view('posts.show',['post' => $post]);
+    return view('posts.show',['post' => $post]);
+}
+
+public function showApi(Post $post)
+    {
+        return response()->json($post);
+    }
+
+
+public function showApiall(): JsonResponse
+{   $publi = Post::all();
+    return response()->json($publi);
 }
 
 public function create(){ // devolver el formulario para crear post
@@ -63,7 +75,7 @@ public function store(SavePostRequest $request){ // guardar el post en la base d
 
 
 
-    return to_route('posts.index')->with('status','El post ha sido creado!');
+    return to_route('posts.index')->with('status','La Publicacion ha sido creada!');
 }
 
 public function edit(Post $post){ // formulario de editar el post
@@ -93,7 +105,7 @@ public function update(SavePostRequest $request, Post $post){ //almacenar los ca
 
     $post->update($request->validated());
 
-    return to_route('posts.show',$post)->with('status','El post ha sido actualizado!');
+    return to_route('posts.show',$post)->with('status','La publicacion ha sido actualizada!');
 
 }
 
@@ -101,7 +113,7 @@ public function destroy(Post $post){ //destruir el post en la base de datos
     $verPost = Post::count();
 
     if ($verPost <= 1) {
-        return to_route('posts.index')->with('status','No se puede borrar el ultimo post');
+        return to_route('posts.index')->with('status','No se puede borrar la ultima publicacion');
 
     }else{
         $imagePath = $post->imagen;
@@ -112,6 +124,6 @@ public function destroy(Post $post){ //destruir el post en la base de datos
     }
 
 
-    return to_route('posts.index')->with('status','El post ha sido eliminado!');
+    return to_route('posts.index')->with('status','La publicacion ha sido eliminada!');
 }
 }

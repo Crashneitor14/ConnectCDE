@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Activity;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\JsonResponse;
 
 class FinanceController extends Controller
 {
@@ -23,14 +24,24 @@ class FinanceController extends Controller
         return view('activity.create',['activity' => new Activity()]);
 
     }
+    public function showApi(Activity $activity){   //mostrar el detalle de un post
+        return response()->json($activity);
+    }
+
+    public function showApiall(): JsonResponse
+    {
+        $actividad = Activity::all();
+        return response()->json($actividad);
+    }
+
     public function store(Request $request){
         $newActivity = new Activity();
 
         $validar = $request->validate([
-            'name' =>['required','min:6'],
+            'name' =>['required','min:6','max:30'],
             'status' =>['required'],
-            'name_rend'   =>['required'],
-            'monto'   =>['required','numeric'],
+            'name_rend'   =>['required','min:4','max:20'],
+            'monto'   =>['required','numeric','min:1','max:9000000'],
             'tipo_rend'   =>['required'],
             'imagen'   =>['mimes:jpeg,png,jpg,pdf,doc,docx','max:16384'],
             'date_start'   =>['required'],

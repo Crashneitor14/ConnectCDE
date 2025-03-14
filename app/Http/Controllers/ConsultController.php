@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Consult;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\JsonResponse;
 
 class ConsultController extends Controller
 {
@@ -21,11 +22,22 @@ class ConsultController extends Controller
         return view('consults.create');
 
     }
+
+    public function showApi(Consult $consult){   //mostrar el detalle de un post
+        return response()->json($consult);
+    }
+
+    public function showApiall(): JsonResponse
+    {
+        $consultas = Consult::all();
+        return response()->json($consultas);
+    }
+
     public function store(Request $request)
     {
         $newConsult = new Consult();
         $validar = $request->validate([
-            'name' =>['required','min:6'],
+            'name' =>['required','min:6','max:30'],
             'message'   =>['required','min:6'],
         ]);
 

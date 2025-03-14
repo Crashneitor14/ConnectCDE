@@ -28,8 +28,8 @@
                         </tr>{{--revisar--}}
                     </thead>
                     @foreach ($vote as $vote)
-                        @if($vote->carrera_user === auth()->user()->carrera)
-                    <tbody class="bg-white">
+                        {{--@if($vote->carrera_user === auth()->user()->carrera)--}}
+                        <tbody class="bg-white">
                         <tr>
                             {{--Nombre Votacion--}}
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
@@ -75,7 +75,7 @@
                             </form>
                         </tr>
                     </tbody>
-                    @endif
+                {{--@endif--}}
                     @endforeach
                 </table>
             </div>

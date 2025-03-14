@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\SaveVoteRequest;
 use App\Models\Vote;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,6 +19,17 @@ class VoteController extends Controller
         return view('votacion.create',['vote' => new Vote()]);
 
     }
+    public function showApi(Vote $vote){   //mostrar el detalle de un post
+        return response()->json($vote);
+    }
+
+    public function showApiall(): JsonResponse
+    {
+        $votos = Vote::all();
+        return response()->json($votos);
+    }
+
+
     public function store(SaveVoteRequest $request){
         $newVote = new Vote();
         $newVote ->name = $request->name;
