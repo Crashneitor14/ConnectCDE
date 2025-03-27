@@ -21,7 +21,7 @@
                         <img src="{{ asset($post->imagen) }}" class="img-fluid img-thumbnail" width="500 px">
                     </a>
                     {{--Cuerpo del post--}}
-                    <div>
+                    <div class="flex justify-center">
                         {{$post->body}}
                     </div>
                     {{--Datos del autor y tiempo del post --}}

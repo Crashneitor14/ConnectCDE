@@ -10,7 +10,7 @@
             <img src="{{ asset($post->imagen) }}" class="mx-auto img-fluid img-thumbnail" width="500 px">
 
         </p>
-        <p class="mx-auto flex-2 leading-normal text-slate-600 ">{{ $post->details }}</p>
+        <p class="mx-auto flex-2 leading-normal">{{ $post->details }}</p>
 
 
 
